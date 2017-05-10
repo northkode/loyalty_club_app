@@ -1,0 +1,9 @@
+{
+    "PassKit.framework": 1,
+    "libz.tbd": 1,
+    "AudioToolbox.framework": 1,
+    "CoreLocation.framework": 1,
+    "SystemConfiguration.framework": 2,
+    "CoreTelephony.framework": 1,
+    "QuartzCore.framework": 1
+}

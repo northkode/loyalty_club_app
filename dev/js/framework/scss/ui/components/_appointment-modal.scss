@@ -1,0 +1,110 @@
+
+.appointment-modal {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.6);
+	opacity: 0;
+	pointer-events: none;
+	&.fadeInUp,
+	&.fadeOutDown {
+		display: block;
+		pointer-events: auto;
+	}
+}
+.appointment-holder {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	color: #333;
+	transform: translate(-50%, -50%);
+	background: white;
+	border-radius: 8px;
+	width: 90%;
+	padding: 15px;
+	max-width: 400px;
+	@include small-device() {
+		width: 90%;
+	};
+	.tip {
+		width: 90%;
+		margin: 10px auto;
+		color: #797979;
+		font-family: 'prelo_semiboldsemibold';
+		font-size: 12px;
+	}
+	hr {
+		border-top: 1px solid #efefef;
+	}
+	h3 {
+		margin: 0 0 8px;
+		text-align: center;
+		font-weight: 100;
+		font-family: "prelo_semiboldsemibold";
+		letter-spacing: 1px;
+	}
+	p {
+		margin-top: 0;
+		font-size: 14px;
+		text-align: center;
+	}
+	form {
+		font-size: 14px;
+	}
+	form > div[class*="date"] {
+		margin-bottom: 5px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+	}
+	input {
+		flex-basis: 50%;
+		display: block;
+		margin-right: 10px;
+		text-align: left;
+		line-height: 27px;
+		&[name="phone"] {
+			border: 0;
+			border-bottom: 1px solid #dfdfdf;
+			border-radius: 0;
+		}
+	}
+	select{
+		flex-basis: 40%;
+	}
+	.footer {
+		display: flex;
+		flex-shrink: 0;
+		margin-top: 10px;
+		padding: 15px;
+		margin-left: -15px;
+		margin-right: -15px;
+		background: #f4f4f4;
+		margin-bottom: -15px;
+		border-bottom-left-radius: 7px;
+		border-bottom-right-radius: 7px;
+		button {
+			flex-grow: 1;
+			flex-basis: 0;
+			padding: 5px 10px;
+			color: white!important;
+			&:first-child {
+				margin-right: 10px;
+			}
+			&.cancel {
+				background: #bebebe;
+			}
+			&.active {
+				text-indent: -9999px;
+				.content-loader {
+					left: 34%;
+					top: -5px;
+				}
+			}
+		}
+	}
+}

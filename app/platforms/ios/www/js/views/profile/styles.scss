@@ -1,0 +1,70 @@
+.profile_page {
+	mobile-header {
+		background: 0 0;
+		position: absolute;
+
+		.title {
+			color: white;
+		}
+	}
+
+	.content {
+		padding-top: 70px;
+		background-color: #000;
+
+		.bg-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			filter: blur(10px);
+			opacity: 0.4;
+			z-index: 99;
+			background-position: center center;
+		}
+
+		.edit-photo {
+			position: absolute;
+			bottom: 0;
+		}
+	}
+
+	.header {
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 100;
+
+		h2 {
+			color: white;
+			text-align: center;
+			font-size: 30px;
+			font-family: bree;
+			font-weight: 100;
+			margin-bottom: 0;
+		}
+
+		h4 {
+			font-weight: 100;
+			color: #848484;
+			text-align: center;
+			font-size: 12px;
+		}
+
+		.systemButton {
+			background: white;
+
+			&.logout {
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+}

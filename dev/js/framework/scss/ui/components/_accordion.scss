@@ -1,0 +1,36 @@
+.accordion {
+    .accordion-header {
+        border-top: 1px solid #ececec;
+        border-bottom:1px solid #ececec;
+        &:first-child {
+            border-top:none;
+        }
+        &:not(:last-child){
+            border-bottom:none;
+        }
+        > .title{
+            color: #333;
+            font-family: "prelo_semiboldsemibold";
+            font-size: 17px;
+            margin-bottom: 0;
+            background: white;
+            padding: 10px 10px;
+            background-image: url("../img/assets/plus-icon.png");
+            background-position:calc(100% - 10px) 50%;
+            background-repeat: no-repeat;
+            background-size:27px;
+        }
+        .accordion-content {
+            display:none;
+        }
+        &.active{
+            border-bottom:none;
+            > .title {
+                background-image: url("../img/assets/minus-icon.png");
+            }
+            .accordion-content{
+                display:block;
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	/* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+	-webkit-touch-callout: none;
+	/* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none;
+	/* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;
+	/* prevent copy paste, to allow, change 'none' to 'text' */
+	font-size: 12px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background: transparent;
+}
+
+html {
+	background-color: transparent;
+}
+
+.application-content {
+	height: 100%;
+}
+
+.wrapper {
+	> footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 61px;
+		display: flex;
+		box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
+
+		.option {
+			flex: 1;
+			border-right: 1px solid rgba(0,0,0,.04);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background-color: white;
+			color: #333;
+			transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
+			&.active {
+				background-color: #a7dcaa;
+			}
+
+			&.center {
+				background: transparent;
+			}
+
+			span {
+				font-family: "Poppins";
+				text-align: center;
+				color: inherit;
+				padding: 3px 8px;
+				font-size: 13px;
+				line-height: 15px;
+				font-weight: 400;
+			}
+
+			.menu-logo {
+				background-image: url('../img/menu-logo.png');
+				width: 76px;
+				height: 78px;
+				background-size: 87%;
+				background-position: center 4px;
+				background-repeat: no-repeat;
+				position: absolute;
+				top: -17px;
+				background-color: white;
+				box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+			}
+		}
+	}
+}

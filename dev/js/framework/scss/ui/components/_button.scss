@@ -1,0 +1,49 @@
+button {
+    border: 0px;
+    color: #533406 !important;
+    background: #F7BD21;
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 2px 12px;
+    outline: 0;
+    font-family: "Poppins";
+    font-weight: 300;
+	-webkit-user-select:none;
+
+    &.active{
+        pointer-events:none;
+        .content-loader{
+            display:block;
+        }
+    }
+
+    .content-loader{
+        display:none;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        position: absolute;
+        top: 0%;
+        left: auto;
+        right: 0px;
+        transform: translate(-50%, -50%);
+        border-radius: 100%;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+    }
+}
+
+a.button,button,.systemButton {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
+    color:currentColor;
+    outline:0;
+    transform:scale(1,1);
+    -webkit-transform: scale(1, 1);
+    > div > * {
+        pointer-events: none;
+    }
+    &.tapped{
+        -webkit-transform: scale(0.95, 0.95);
+        transform:scale(0.95,0.95);
+    }
+}

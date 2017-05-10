@@ -1,0 +1,38 @@
+.android {
+    .alt-menu-clicker{
+        position:fixed;
+        top:0;bottom:0;
+        left:0;right:0;
+        background:rgba(255,255,255,.01);
+        display:none;
+        z-index: 100000;
+        &.active{
+            display:block;
+        }
+    }
+    .alt-menu-holder{
+        display:none;
+        &.active{ display:block;}
+        &.fadeIn {
+            -webkit-animation-duration: 0.2s;
+        }
+        position: fixed;
+        top: 21px;
+        right: 9px;
+        z-index: 1000000;
+        background: rgb(239, 239, 239);
+        color: #333;
+        box-shadow: 0px 0px 10px rgba(0,0,0,.3);
+        min-width: 120px;
+        .alt-menu-item{
+            padding: 10px;
+            font-weight:100;
+            &:active { background:#ccc; }
+            .systemButton {
+                height:100%;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+            }
+        }
+    }
+}

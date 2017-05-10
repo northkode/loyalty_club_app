@@ -1,0 +1,28 @@
+.chat-btn {
+    position: absolute;
+    background: #1c1c1c;
+    color: white !important;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 0 11px;
+    font-size: 20px;
+    &.loading {
+        .spinner-loader {
+            display:block;
+        }
+        i {
+            display:none;
+        }
+    }
+    .spinner-loader {
+        display:none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left:-10px;
+        margin-top:-10px;
+        width:2em;
+        height:2em;
+    }
+}

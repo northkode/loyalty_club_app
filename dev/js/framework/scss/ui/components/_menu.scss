@@ -1,0 +1,260 @@
+.menu-icon-wrapper {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	visibility: hidden;
+	.iPhone & {
+		top: 30px;
+	}
+}
+/* Menu icon styles */
+.menu-icon-wrapper {
+	width: 34px;
+	height: 34px;
+	pointer-events: none;
+	transition: 0.1s;
+	z-index: 1000000000;
+	transform: scale(0.8);
+	&.scaled {
+		transform: scale(0.4);
+	}
+}
+.menu-icon-wrapper svg {
+	position: absolute;
+	top: -33px;
+	left: -33px;
+	-webkit-transform: scale(0.1);
+	-ms-transform: scale(0.1);
+	transform: scale(0.1);
+	-webkit-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+.menu-icon-wrapper svg path {
+	stroke: #2a2b2a;
+	stroke-width: 60px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: transparent;
+	.menu-open & {
+		stroke: white;
+	}
+}
+.menu-icon-wrapper .menu-icon-trigger {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	pointer-events: auto;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+.menu-icon-wrapper .menu-icon-trigger:focus,
+.menu-icon-wrapper .menu-icon-trigger:hover {
+	outline: none;
+}
+.main-menu {
+	position: fixed;
+	width: -webkit-calc(100% );
+	width: calc(100% - 50px );
+	padding-right: 0;
+	height: 100%;
+	background: #1e1e1e;
+	pointer-events: none;
+	> * {
+		pointer-events: auto;
+	}
+	.trade-pro,
+	.trade-user {
+		display: none;
+		flex-grow: 1;
+		flex-direction: column;
+		margin-top: 0;
+		padding-top: 20px;
+	}
+	.user-profile {
+		margin-top: 30px;
+		@include iPhone5() {
+			margin-top: 0;
+		}
+		width: 100%;
+		text-align: center;
+		color: white;
+		transform: translate3d(0,0,0) scale(.5);
+		opacity: 0;
+		position: relative;
+		transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1) 0s, opacity 0.3s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+		.user-image {
+			background-size: cover;
+			background-position: center center;
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			overflow: hidden;
+			border: 5px solid #413f3f;
+			margin: 10px auto;
+			background-color: #413f3f;
+			@include iPhone5 {
+				width: 100px;
+				height: 100px;
+				margin: 40px auto 0;
+			}
+		}
+		.user-name {
+			color: $app-highlight;
+			font-family: "prelo_semiboldsemibold";
+		}
+		.user-image-uploader::-webkit-file-upload-button {
+			visibility: hidden;
+			position: relative;
+		}
+		.user-image-uploader {
+			width: 1px;
+			height: 1px!important;
+			display: block;
+			position: absolute;
+			right: calc(45%);
+			bottom: 26px;
+			outline: none;
+		}
+		.user-image-uploader::before {
+			content: "\f040";
+			z-index: 1000;
+			font-family: "FontAwesome";
+			background: #f7bd21;
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			font-size: 22px;
+			color: #333;
+			border-radius: 50%;
+			padding: 10px;
+			line-height: 22px;
+		}
+	}
+	ul {
+		margin-top: 20px;
+		width: 100%;
+		padding-right: 20px;
+		position: relative;
+		transform: translate3d(0,0,0) scale(.5);
+		opacity: 0;
+		transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1) 0.05s, opacity 0.3s cubic-bezier(0.86, 0, 0.07, 1) 0.05s;
+		display: flex;
+		flex-grow: 1;
+		flex-direction: column;
+		li {
+			color: white;
+			padding: 10px 40px;
+			position: relative;
+			background-position: 10px 50%;
+			background-repeat: no-repeat;
+			background-size: 25px 25px;
+			a {
+				color: white;
+				display: block;
+				width: 100%;
+				.counter {
+					display: none;
+					background: rgba(255,255,255,.3);
+					padding: 2px;
+					border-radius: 50%;
+					min-width: 25px;
+					text-align: center;
+					color: white;
+					float: right;
+					margin-top: -3px;
+					font-family: "prelo_semiboldsemibold";
+					&.active {
+						display: inline-block;
+					}
+				}
+			}
+			&.current a {
+				color: $app-highlight;
+			}
+			&:after {
+				display: block;
+				content: "";
+				background-image: url("../img/assets/chevron-right.png");
+				width: 8px;
+				height: 30px;
+				position: absolute;
+				right: 0;
+				background-repeat: no-repeat;
+				background-size: contain;
+				top: 65%;
+				transform: translateY(-50%);
+				-webkit-filter: brightness(100);
+			}
+			&.home {
+				background-image: url('../img/menu/home.png');
+			}
+			&.jobs {
+				background-image: url('../img/menu/jobs.png');
+			}
+			&.estimates {
+				background-image: url('../img/menu/estimates.png');
+			}
+			&.payment {
+				background-image: url('../img/menu/payment.png');
+			}
+			&.messages {
+				background-image: url('../img/menu/messages.png');
+			}
+			&.profile {
+				background-image: url('../img/menu/profile.png');
+			}
+			&.dashboard {
+				background-image: url('../img/menu/dashboard.png');
+			}
+			&.feedback {
+				background-image: url('../img/menu/feedback.png');
+			}
+			&.signout {
+				position: absolute;
+				bottom: 5px;
+				width: 94%;
+				left: 0;
+				background-image: url('../img/menu/signout.png');
+				@include hasTradePro() {
+					bottom: 50px;
+				}
+			}
+			&.switch-accounts {
+				background: $app-highlight;
+				width: 106%;
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				a {
+					color: $app-brown;
+					font-family: "prelo_semiboldsemibold";
+				}
+				&:after {
+					background-image: url("../img/assets/switch-accounts-icon.png");
+					width: 30px;
+					height: 20px;
+					right: 0;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+		}
+	}
+	.menu-open & {
+		z-index: 0;
+		.user-profile {
+			transform: translate3d(0,0,0) scale(1);
+			opacity: 1;
+		}
+		ul {
+			transform: translate3d(0,0,0) scale(1);
+			opacity: 1;
+		}
+	}
+}

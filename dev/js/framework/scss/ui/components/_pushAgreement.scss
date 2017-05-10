@@ -1,0 +1,76 @@
+.push-wrapper {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 800, 0, 1);
+	background: rgba(0,0,0,.3);
+}
+
+.push-registration {
+	background: #282828;
+	border-radius: 5px;
+	height: 53vh;
+	max-height:400px;
+	width: 75vw;
+	padding: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	img {
+		width: 50%;
+		display: block;
+		margin: 0 auto 10px;
+	}
+
+	h1 {
+		font-family: "harabarabold";
+		font-size: 19px;
+		text-align: center;
+		width: 100%;
+		margin-bottom: 0;
+		color: $app-highlight;
+	}
+
+	h2 {
+		font-family: "prelo_semiboldsemibold";
+		font-size: 13px;
+		text-align: center;
+		width: 100%;
+		margin-bottom: 0;
+		color: white;
+	}
+
+	p {
+		font-family: "prelo_lightlight";
+		font-size: 14px;
+		text-align: center;
+		width: 100%;
+		margin-bottom: 0;
+		color: white;
+	}
+
+	.footer {
+		display: flex;
+		position: absolute;
+		width:100%;
+		bottom: 0;
+		left: 0;
+		border-top: 1px solid #333333;
+
+		button {
+			flex: 1;
+			border-radius: 5px;
+			background: none;
+			padding:15px 10px;
+			color: #eee!important;
+			&:first-child {
+				border-right: 1px solid #333333
+			}
+		}
+	}
+}

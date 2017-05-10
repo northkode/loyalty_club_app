@@ -1,0 +1,88 @@
+html {
+	box-sizing: border-box;
+}
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}
+//@import "blueplate/**/*";
+@import "animations";
+
+@import "ui/animate";
+@import "ui/loadingscreen";
+@import "ui/notifications";
+@import "ui/uiMain";
+
+/**components **/
+@import "ui/components/tabbar";
+@import "ui/components/button";
+@import "ui/components/tool-tip";
+@import "ui/components/user_assistant";
+@import "ui/components/profile-image";
+
+.No-Internet {
+	mobile-header {
+		background: #f7bd21!important;
+		.title {
+			color: #333!important;
+		}
+	}
+	.content {
+		background: #f7bd21;
+		color: #333;
+		font-size: 20px;
+		text-align: center;
+		p {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 0;
+			font-family: "prelo_semiboldsemibold";
+			width: 80%;
+			margin: 0 auto;
+		}
+		button {
+			position: absolute;
+			bottom: 30px;
+			display: block;
+			margin: 0 auto;
+			background: #333;
+			padding: 10px 20px;
+			width: 60%;
+			left: 50%;
+			transform: translateX(-50%);
+			color: white !important;
+		}
+	}
+}
+
+.user-support {
+	display: none;
+	position: fixed;
+	z-index: 1000000000000;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+	bottom: 20px;
+	right: 20px;
+	border: 2px solid #333;
+	.counter {
+		display: none;
+		position: absolute;
+		top: -5px;
+		left: -5px;
+		width: 25px;
+		height: 25px;
+		background: red;
+		color: white;
+		border-radius: 50%;
+		line-height: 25px;
+		text-align: center;
+		font-family: "prelo_semiboldsemibold";
+	}
+	img {
+		width: 100%;
+	}
+}

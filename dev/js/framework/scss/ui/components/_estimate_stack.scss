@@ -1,0 +1,202 @@
+.content {
+	.tip {
+		position: relative;
+		@include iPhone5() {
+			width: 90%;
+		}
+	}
+	.pages {
+		margin: 10px auto 0;
+		text-align: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		span {
+			color: #545454;
+			font-size: 25px;
+			font-family: "arial";
+			display: inline-block;
+			text-align: center;
+			&.active {
+				color: white;
+			}
+		}
+	}
+	.elasticstack {
+		position: relative;
+		padding: 0;
+		width: 100%;
+		display: flex;
+		flex: auto;
+		flex-direction: column;
+		> * {
+			flex: none;
+		}
+		list-style: none;
+		perspective: 1000px;
+		perspective-origin: 50% 120%;
+	}
+	.zero-estimates {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 180px;
+		height: 140px;
+		transform: translate(-50%,-50%);
+		img {
+			width: 100%;
+		}
+	}
+	.elasticstack > li {
+		@include flex-wrapper();
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		box-shadow: 0 10px 7px -7px rgba(0,0,0,0.12), 0 0 4px rgba(0,0,0,0.1);
+		opacity: 0;
+		cursor: pointer;
+		backface-visibility: hidden;
+		transform: translate3d(0,0,-180px);
+		transform-style: preserve-3d;
+		background: white;
+		h1 {
+			color: #656565;
+			font-family: "harabarabold";
+			text-align: center;
+			font-weight: 100;
+			letter-spacing: 1px;
+			line-height: 30px;
+			margin-top: 15px;
+			@include small-device() {
+				font-size: 20px;
+				line-height: 20px;
+			};
+		}
+		h2 {
+			background: #91C499;
+			color: white;
+			border-radius: 50px;
+			padding: 10px 20px;
+			text-align: center;
+			font-family: "prelo_semiboldsemibold";
+			width: 70%;
+			font-size: 16px;
+			margin: -10px auto 10px;
+			@include iPhone5() {
+				width: 70%;
+			}
+		}
+		.date {
+			font-family: "prelo_lightlight";
+			text-align: center;
+			width: 60%;
+			@include iPhone5() {
+				width: 70%;
+			}
+			color: #333;
+			margin: 0 auto;
+			font-size: 12px;
+		}
+		> .user {
+			@include flex-stretch();
+			justify-content: center;
+			align-items: center;
+			padding: 0 40px;
+			@include iPhone5() {
+				padding: 0 30px;
+			}
+		}
+		.trade-pros {
+			@include clearfix();
+			padding: 0;
+			margin: -10px auto 10px;
+			text-align: center;
+			li {
+				list-style: none;
+				width: 60px;
+				height: 60px;
+				display: inline-block;
+				border: 0 solid #f7bd21;
+				vertical-align: top;
+				box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+				background: #ddd;
+				border-radius: 50%;
+				position: relative;
+				&.new {
+					border: 3px solid #f7bd21;
+					&:before {
+						content: "new";
+						position: absolute;
+						top: 0;
+						right: 12px;
+						width: 30px;
+						height: 14px;
+						background: #f7bd21;
+						z-index: 1;
+						border-radius: 20px;
+						font-size: 10px;
+						font-family: "prelo_boldbold";
+					}
+				}
+				&:not(:first-child) {
+					margin-left: -10px;
+				}
+				.profile_image {
+					border-radius: 100%;
+					overflow: hidden;
+					width: 100%;
+					height: 100%;
+					background: #ddd;
+					img {
+						height: 100%;
+						position: relative;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%,-50%);
+					}
+				}
+			}
+		}
+		.companies {
+			color: #333;
+			text-align: center;
+		}
+		.footer {
+			background: #f7c717;
+			position: relative;
+			width: 100%;
+			left: 0;
+			text-align: center;
+			color: #533406;
+			font-family: "harabarabold";
+			font-weight: 100;
+			letter-spacing: 1px;
+			text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
+			font-size: 4.5vw;
+		}
+	}
+	.elasticstack > li.animate {
+		-webkit-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
+	}
+	.elasticstack > li.move-back {
+		/* http://matthewlein.com/ceaser/ */
+		-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.470, 1);
+		/* older webkit */
+		-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.470, 1.515);
+		transition-timing-function: cubic-bezier(0.175, 0.885, 0.470, 1.515);
+	}
+}
+
+.tradepro-card-tip {
+	.tip-holder .tip {
+		background: #333!important;
+		color: #fff!important;
+		padding: 10px 10px 10px!important;
+		.arrow{
+			border-color: #333 transparent transparent transparent!important;
+		}
+	}
+}

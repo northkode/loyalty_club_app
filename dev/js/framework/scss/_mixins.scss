@@ -1,0 +1,75 @@
+@mixin flex-none() {
+	-webkit-box-flex: 0;
+	-webkit-flex: none;
+	flex: none;
+}
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+@mixin small-device() {
+	 @at-root .small-device #{&}{
+		@content;
+	}
+}
+@mixin android() {
+	 @at-root .android #{&}{
+		@content;
+	}
+}
+@mixin android-small() {
+	 @at-root .android-small #{&}{
+		@content;
+	}
+}
+@mixin iPhone() {
+	 @at-root .iPhone #{&}{
+		@content;
+	}
+}
+@mixin mini() {
+	 @at-root .mini-device #{&}{
+		@content;
+	}
+}
+@mixin iPhone5() {
+	 @at-root .iPhone5 #{&}{
+		@content;
+	}
+}
+@mixin iPhone6() {
+	 @at-root .iPhone6 #{&}{
+		@content;
+	}
+}
+@mixin iPhone6Plus() {
+	 @at-root .iPhone6plus #{&}{
+		@content;
+	}
+}
+@mixin iPad() {
+	 @at-root .iPad #{&}{
+		@content;
+	}
+}
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+
+	> .scale_div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

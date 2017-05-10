@@ -1,0 +1,125 @@
+mobile-view {
+	height: 100%;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #2a2b2a;
+	transform: translate(0, 0);
+	-webkit-user-select: none;
+
+	* {
+		-webkit-user-select: none;
+	}
+
+	input,
+	textarea {
+		-webkit-user-select: text !important;
+		user-select: text !important;
+	}
+
+	&.active {
+		display: flex;
+	}
+
+	.wrap {
+		min-height: 100%;
+		padding-bottom: 1px;
+	}
+
+	.content {
+		flex:1;
+		display:flex;
+		flex-direction: column;
+		padding: 0;
+		overflow: hidden;
+		color: white;
+		background: #2a2b2a;
+		z-index: 100000000000;
+
+		> .title {
+			font-family: "harabarabold";
+			color: white;
+			font-size: 20px;
+			line-height: 24px;
+			margin-top: 10px;
+			font-weight: 100;
+			letter-spacing: 1px;
+			margin-bottom: 10px;
+			padding: 0 10px;
+		}
+
+		> .description {
+			font-family: "prelo_lightlight";
+			color: white;
+			font-size: 15px;
+			margin-bottom: 10px;
+			padding: 0 10px;
+			font-weight: 100;
+		}
+	}
+
+
+	.continueBtn {
+		background: #313131;
+		text-align: center;
+		padding: 10px;
+		display: none;
+
+		.continue {
+			color: $app-highlight;
+			font-family: "harabarabold";
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			font-size: 20px;
+		}
+
+		.step-count {
+			color: #b2b2b2;
+			font-size: 14px;
+		}
+	}
+
+	.tip {
+		font-family: prelo_lightlight;
+		font-size: 14px;
+
+		span {
+			font-family: "harabarabold";
+			font-size: 14px;
+			letter-spacing: 1px;
+		}
+		width: 70%;
+		text-align: center;
+		margin: 5px auto;
+	}
+
+	&[type='overlay'] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 100;
+	}
+
+	&.tradePro {
+		background: rgb(241, 241, 241);
+		color: #2a2b2a;
+
+		.content {
+			background: rgb(241, 241, 241);
+			color: #2a2b2a;
+
+			> .title {
+				color: #2a2b2a;
+			}
+
+			> .description {
+				color: #2a2b2a;
+			}
+		}
+	}
+}

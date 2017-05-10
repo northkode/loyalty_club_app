@@ -1,0 +1,34 @@
+.textarea-holder {
+    background    : #565656;
+    width         : 100%;
+    min-height    : 30%;
+    padding       : 10px;
+    position:relative;
+    .placeholder {
+        position:absolute;
+        top:0px;
+        left:0px;
+        padding:10px;
+        width:100%;
+        height:100%;
+        z-index:0;
+        opacity:.6;
+        transition:opacity .3s ease-out;
+        &.unactive {
+            opacity:0;
+			pointer-events: none;
+        }
+    }
+
+    textarea {
+        border        : none;
+        border-radius : 0px;
+        width:100%;
+        min-height: 100px;
+        color:white;
+        background:transparent;
+        z-index:1;
+        position:relative;
+        outline:none;
+    }
+}

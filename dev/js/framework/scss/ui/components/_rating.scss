@@ -1,0 +1,22 @@
+user-rating{
+    display:block;
+    .rating {
+        color:$app-highlight;
+        i {
+            display: inline-block;
+            position: relative;
+            width: 1.1em;
+            font-size:1em;
+            color:inherit;
+            margin-right: -3px;
+        }
+        span {
+            color:inherit;
+            font-size:11px;
+            display:inline-block;
+            vertical-align: top;
+            padding-top:3px;
+            padding-left:7px;
+        }
+    }
+}

@@ -1,0 +1,302 @@
+.login_page {
+	background: #000;
+
+	mobile-header {
+		display: none;
+		background: transparent;
+
+		.title {
+			color: white;
+		}
+	}
+
+	.content {
+		flex-direction: column;
+		padding: 0;
+		background: transparent;
+
+		&:after {
+			position: absolute;
+			top: 205px;
+
+			.small-device & {
+				top: 135px;
+			}
+
+			.iphone6plus & {
+				top: 235px;
+			}
+			.iPad & {
+				top: 505px;
+			}
+			left: -20px;
+			content: "";
+			width: 413%;
+			height: 115px;
+			background: -webkit-linear-gradient(top, transparent, #000);
+			background: -webkit-linear-gradient(top, transparent, #000);
+			background: linear-gradient(180deg, transparent 0, #000);
+			z-index: -1;
+		}
+
+		.form {
+			padding: 20px;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			img {
+				display: none;
+				width: 80%;
+				margin-bottom: 20px;
+				position: relative;
+				margin-top: 50px;
+				@include android() {
+					display: block;
+				};
+				@include mini() {
+					display:block;
+					margin-top:0px;
+				};
+			}
+
+			canvas {
+				position: absolute;
+				top: 0;
+				z-index: -1;
+				left: 0;
+			}
+
+			.back-to-options {
+				background: #333;
+				color: white!important;
+				margin-top: 20px;
+			}
+
+			.create-form,
+			.forgot-password-modal {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				transform: translateY(100%);
+				transition: transform 0.3s ease-out;
+				z-index: 10000;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background: #000;
+				display: flex;
+				@include mini() {
+					padding:20px;
+				};
+
+				.back {
+					position: absolute;
+					top: 20px;
+					left: 20px;
+					color: white;
+				}
+
+				&.active {
+					transform: translateY(0%);
+				}
+
+				.systemButton {
+					color: #333;
+					position: relative;
+
+					.spinner {
+						display: none;
+						top: 25%;
+						left: 45%;
+					}
+
+					&.active {
+						text-indent: -9999px;
+
+						.spinner {
+							display: block;
+						}
+					}
+				}
+
+				h2 {
+					font-family: bree;
+					font-size: 20px;
+					margin-top: 0;
+					margin-bottom: 10px;
+					color: white;
+					font-size: 30px;
+					text-align: center;
+				}
+
+				.field {
+					margin-bottom: 10px;
+					@include small-device() {
+						margin-bottom: 0;
+					};
+					width: 60%;
+
+					&.birthday {
+						display: flex;
+						align-items: center;
+						color: #ccc;
+
+						input {
+							flex: 1;
+						}
+					}
+
+					input {
+						width: 100%;
+						border: none;
+						padding: 10px;
+						background: transparent;
+						border-bottom: 2px solid rgb(58, 58, 58);
+						border-radius: 0;
+						font-size: 15px;
+						text-align: center;
+						color: white;
+					}
+				}
+			}
+
+			.option-holder {
+				margin-top: auto;
+				will-change: transform;
+				transition: transform 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+				position: relative;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 30px;
+
+				@include mini() {
+					margin-bottom:0;
+				};
+
+				> p {
+					color: white;
+					text-align: center;
+					font-size: 15px;
+					padding: 20px 30px;
+				}
+
+				&.login {
+					transform: translateX(-105%);
+
+					.login-form {
+						display: flex;
+					}
+				}
+
+				.login-form {
+					z-index: 100;
+					display: none;
+					width: 100vw;
+					position: absolute;
+					top: 50%;
+					left: 100%;
+					transform: translateY(-60%);
+					display: none;
+					color: white;
+					flex-direction: column;
+					align-items: center;
+
+					.systemButton {
+						color: #333;
+						position: relative;
+
+						.spinner {
+							display: none;
+							top: 25%;
+							left: 45%;
+						}
+
+						&.active {
+							text-indent: -9999px;
+
+							.spinner {
+								display: block;
+							}
+						}
+					}
+
+					h2 {
+						font-family: bree;
+						font-size: 20px;
+						margin-top: 0;
+						margin-bottom: 10px;
+					}
+
+					.field {
+						margin-bottom: 10px;
+						width: 60%;
+
+						@include mini() {
+							margin-bottom:0;
+						};
+
+						input {
+							width: 100%;
+							border: none;
+							padding: 10px;
+							background: transparent;
+							border-bottom: 2px solid rgb(58, 58, 58);
+							border-radius: 0;
+							font-size: 15px;
+							text-align: center;
+							color: white;
+						}
+					}
+
+					.birthday + span {
+						margin-top: -10px;
+						@include small-device() {
+							margin-top: 0;
+						};
+					}
+				}
+			}
+
+			.systemButton {
+				background: white;
+				padding: 10px 20px;
+				border-radius: 4px;
+				font-size: 18px;
+				font-family: "bree";
+				margin: 10px 0;
+				width: 60%;
+				text-align: center;
+			}
+
+			.terms {
+				color: #6e6e6e;
+				font-size: 12px;
+				text-align: center;
+			}
+		}
+	}
+}
+
+canvas {
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+	height: 300px!important;
+
+	.small-device & {
+		height: 250px!important;
+	}
+	.iphone6plus & {
+		height: 400px!important;
+	}
+	.iPad & {
+		height: 600px!important;
+	}
+}

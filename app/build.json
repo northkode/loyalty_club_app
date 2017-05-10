@@ -1,0 +1,11 @@
+{
+     "android": {
+         "release": {
+             "keystore": "../release.key",
+             "storePassword": "theranch",
+             "alias": "myReleaseKey",
+             "password" : "theranch",
+             "keystoreType": ""
+         }
+     }
+ }

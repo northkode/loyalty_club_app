@@ -1,0 +1,53 @@
+{
+  "name": "the-ranch",
+  "version": "1.0.0",
+  "description": "loyalty club app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cordova": "cd app && cordova",
+    "cordova-version": "cd app && cordova -v",
+    "cordova-build-run": "npm run build && cd app && cordova run ios --target='iPhone-6'",
+    "cordova-build-all": "cd app && cordova build",
+    "cordova-release-android": "cd app && cordova build android --buildConfig ./build.json --release",
+    "create-android-release-key": "cd app && keytool -genkey -v -keystore ../release.key -alias myReleaseKey -keyalg RSA -keysize 2048 -validity 10000",
+    "create-android-debug-key": "cd app && keytool -genkey -v -keystore ../debug.key -alias myDebugKey -keyalg RSA -keysize 2048 -validity 10000",
+    "release-android": "cd app && cordova build android --buildConfig ./build.json --release",
+
+	"build": "rimraf dist && webpack --bail --progress --profile",
+    "server": "webpack-dev-server --history-api-fallback --inline --progress --display-error-details",
+    "start": "npm run server",
+    "stop": "webpack-dev-server --stdin"
+  },
+  "keywords": [
+    "golf"
+  ],
+  "author": "Kyle Jeske",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.0.3",
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "clean-webpack-plugin": "^0.1.14",
+    "copy-webpack-plugin": "^1.1.1",
+    "cordova": "^6.4.0",
+    "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.7.1",
+    "jquery": "^2.2.4",
+    "node-sass": "^3.13.0",
+    "postcss-loader": "^1.1.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^3.2.0",
+    "sass-resources-loader": "^1.1.0",
+    "style-loader": "^0.13.0",
+    "swiper": "^3.4.1",
+    "webpack": "^1.13.3",
+    "webpack-clean": "^1.0.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

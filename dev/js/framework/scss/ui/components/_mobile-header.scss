@@ -1,0 +1,188 @@
+mobile-header {
+	width: 100%;
+	height: 50px;
+	position:relative;
+	z-index: 100000;
+	background: #222;
+	&.no-shadow {
+		box-shadow: none!important;
+		border-bottom: 0!important;
+	}
+	.colorbg {
+		width: 100%;
+		height: 22px;
+		position: absolute;
+		background: #000;
+		border-bottom: 2px solid #f7bd21;
+		@include android() { height: 0; };
+	}
+	div.title {
+		> * {
+			pointer-events: none;
+		}
+		i {
+			margin-left: 5px;
+			margin-right: 10px;
+		}
+		cursor: pointer;
+		font-family: "prelo_boldbold";
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		font-size: 1.2em;
+		height: 50px;
+		line-height: 50px;
+		color: #2a2b2a;
+		text-align: center;
+		text-shadow: 0 1px 1px rgba(255,255,255,.3);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		left: 50%;
+		transform: translateX(-50%);
+		width: calc(100% - 140px);
+		@include android() {
+			width: calc(100% - 140px);
+		}
+		@include iPhone5() {
+			width: calc(100% - 140px);
+		}
+		@include iPhone6() {
+			width: calc(100% - 140px);
+		}
+		@include iPhone6Plus() {
+			width: calc(100% - 140px);
+		}
+		img {
+			height: 60%;
+			margin: 10px auto;
+			display: block;
+		}
+	}
+	.overlay & {
+		z-index: 1000000;
+		div.title {
+			z-index: 2;
+		}
+	}
+	.alt-menu {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 40px;
+		height: 50px;
+		a.systemButton {
+			&:active {
+				background: rgba(255, 255, 255, 0.13);
+			}
+			height: 100%;
+			img {
+				position: absolute;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				height: 55%;
+				top: 50%;
+			}
+		}
+	}
+	.backBtn {
+		height: 100%;
+		position: absolute;
+		z-index: 100000000;
+		line-height: 89px;
+		padding-left: 25px;
+		font-family: "prelo_semiboldsemibold";
+		color: #2a2b2a;
+		width: 75px;
+		text-shadow: 0 1px 0 rgba(255,255,255,.3);
+		&:before {
+			position: absolute;
+			content: "\f053";
+			font-family: FontAwesome;
+			display: block;
+			width: 30px;
+			left: 10px;
+			height: 100%;
+			line-height: 91px;
+			color: #2a2b2a;
+			top: 0;
+			transform: translateY(0);
+		}
+	}
+	.icon {
+		position: absolute;
+		right: 10px;
+		width: 30px;
+		height: 20px;
+		img {
+			width: 100%;
+		}
+		.counter {
+			display: none;
+			position: absolute;
+			top: -13px;
+			right: -9px;
+			background: white;
+			padding: 5px;
+			border-radius: 100%;
+			min-width: 24px;
+			text-align: center;
+			line-height: 10px;
+			font-size: 12px;
+			font-family: "prelo_semiboldsemibold";
+			border: 2px solid #f7bd21;
+			&.active {
+				display: block;
+			}
+		}
+	}
+	&[no-back] {
+		.backBtn {
+			display: none;
+		}
+	}
+	user-tip {
+		display: block;
+		position: absolute;
+		right: 0;
+		top:0;
+		color: white;
+		font-size: 20px;
+		display: flex;
+		height: 100%;
+		align-items: center;
+		z-index:2;
+		&[data-menu="true"] { right:45px; }
+		@include iPhone(){ top: 8px; }
+	}
+	@include iPhone() {
+		height: 70px;
+	}
+	@include android() {
+		.backBtn {
+			line-height: 53px;
+			&:before {
+				line-height: 55px;
+			}
+		}
+	}
+	@include tradeUser() {
+		background: transparent;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+		box-shadow: 0 4px 10px rgba(0,0,0,.4);
+		.backBtn {
+			&:before {
+				color: white;
+				text-shadow: none;
+			}
+		}
+		.title {
+			color: white;
+			text-shadow: none;
+		}
+		.icon {
+			color: white;
+			text-shadow: none;
+		}
+	}
+}

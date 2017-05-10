@@ -1,0 +1,43 @@
+/** app variables */
+$app-background:#313131;
+$app-highlight: #f7bd21;
+$app-brown: #533406;
+$app-gray: #2a2b2a;
+
+/* button styles */
+$button-bg-color:green;
+$button-text-color:white;
+
+$notification: #ff585b;
+
+
+
+
+/** CUSTOM MIXINS FOR EASIER USE THROUGHOUT THE APP */
+
+@mixin linear-gradient($fromColor, $toColor) {
+    background-color: $toColor; /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+    background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, $fromColor, $toColor);
+
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='{$fromColor}', EndColorStr='{$toColor}');
+}
+
+$default-prefixes: webkit moz ms o;
+
+@mixin build-prefix-values($property, $value, $prefixes: $default-prefixes) {
+    @each $prefix in $prefixes {
+        -#{$prefix}-#{$property}: #{$value};
+    }
+    #{$property}: #{$value};
+}
+
+@mixin transition($property: all, $delay: 1s, $timing: linear) {
+    $value: $property $delay $timing;
+    // use default prefixes
+    @include build-prefix-values('transition', $value);
+}

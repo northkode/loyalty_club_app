@@ -1,0 +1,84 @@
+.notificationTray {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10000000000000;
+	transition: opacity 0.3s ease-out;
+	opacity: 0;
+	pointer-events: none;
+
+	.notification {
+		width: calc(100% - 20px);
+		margin: 10px;
+		min-height: 40px;
+		border-radius: 4px;
+		box-shadow: 0 3px 4px rgba(0, 0, 0, .2);
+		display: flex;
+		flex-direction: row;
+		background: rgba(9, 9, 9, 0.76);
+		font-weight: 300;
+		position: relative;
+		padding: 10px;
+		border-top: 1px solid rgba(255, 255, 255, .1);
+		justify-content: center;
+		align-items: center;
+
+		.icon {
+			left: 7px;
+			width: 45px;
+			height: 45px;
+			text-align: center;
+			background-color: rgba(255, 255, 255, .1);
+			flex-shrink: 0;
+			border-radius: 100%;
+			overflow: hidden;
+			background-size: cover;
+			background-position: center center;
+			margin-right: 5px;
+		}
+
+		.close {
+			width: 35px;
+			height: 35px;
+			text-align: center;
+			padding: 5px;
+			flex-shrink: 0;
+		}
+
+		.message-holder {
+			height: 100%;
+			padding: 5px;
+			flex: 1;
+
+			.label {
+				margin-bottom: 5px;
+				color: $app-highlight;
+				font-size: 15px;
+				font-family: "prelo_semiboldsemibold";
+			}
+
+			.message {
+				color: white;
+				font-size: 14px;
+				margin-top: -4px;
+				line-height: 15px;
+				margin-bottom: 5px;
+				font-family: "prelo_semiboldsemibold";
+			}
+
+			.user {
+				width: 100%;
+				text-align: right;
+				color: $app-highlight;
+				font-size: 13px;
+				font-family: "prelo_lightlight";
+			}
+		}
+	}
+
+	&.active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
