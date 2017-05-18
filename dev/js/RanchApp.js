@@ -5,8 +5,6 @@ import "./vendor/jquery.pinchzoomer";
 import "./vendor/datedropper.min";
 import "./vendor/swiper.min";
 import autosize from "./vendor/autosize.min";
-import THREE from "./vendor/three";
-window.THREE = THREE;
 
 // api for server talking
 import { API } from "./Api";
@@ -15,6 +13,8 @@ import UserAssistant from "./framework/controls/UserAssistant";
 
 //VIEWS
 import NoInternet from './framework/views/NoInternet';
+import Welcome from './views/welcome/index';
+import Categories from './views/categories/index';
 import Home from './views/home/index';
 import Points from './views/points/index';
 import Login from './views/login/index';
@@ -31,6 +31,8 @@ class RanchApp extends MobileApp {
         // register all the app states here
         // Main Menu Items -----
         StateManager.registerState('nointernet', NoInternet);
+        StateManager.registerState('welcome', Welcome);
+        StateManager.registerState('categories', Categories);
         StateManager.registerState('home', Home);
         StateManager.registerState('points', Points);
         StateManager.registerState('login', Login);
@@ -52,7 +54,7 @@ class RanchApp extends MobileApp {
     init() {
         super.init();
 
-		this.api = new API(this.localSettings.getItem('devmode') === 'true' ? this.settings.dev_server : this.settings.prod_server, this.settings.customer_id); // server api helper
+		this.api = new API(this.localSettings.getItem('devmode') === 'true' ? this.settings.dev_server : this.settings.prod_server); // server api helper
 
 		console.log("app initializing...");
 
@@ -109,7 +111,6 @@ class RanchApp extends MobileApp {
         // wait till the state manager is ready
         promise.done(() => {
 			console.log('state manager ready')
-            this.pn.init(this.settings);
             this.setupRouting();
         });
 		promise.fail((e)=>{
@@ -118,60 +119,21 @@ class RanchApp extends MobileApp {
 		})
     }
 
-    onProfileClicked() {
-        if (!this.um.currentUser.is_superuser) return;
-        clearTimeout(this.countTimer);
-        this.devCounter += 1;
-        this.countTimer = setTimeout(function() {
-            this.devCounter = 0;
-        }.bind(this), 1000);
-        if (this.devCounter == 5) {
-            window.plugins.toast.showShortBottom('Almost there, 5 more clicks', function(a) {}, function(b) {});
-        }
-        if (this.devCounter >= 10) {
-            if (mobileApp.localSettings.getItem('devmode') === 'true') {
-                this.setDevMode(false);
-            } else {
-                this.setDevMode(true);
-            }
-        }
-    }
-
-    setDevMode(isDev) {
-        this.devCounter = 0;
-        mobileApp.localSettings.removeItem('token');
-        console.log("is dev mode", isDev)
-        if (isDev) {
-            mobileApp.localSettings.setItem('devmode', 'true');
-            window.plugins.toast.showShortBottom('Dev mode activated', function(a) {}, function(b) {});
-            $('.app').addClass('devmode')
-            this.api.apiPath = this.settings.dev_server;
-            //Stripe.setPublishableKey(this.settings.stripe_dev);
-            window.plugins.OneSignal.sendTag("dev_user", "true");
-        } else {
-            this.api.apiPath = this.settings.prod_server;
-            //Stripe.setPublishableKey(this.settings.stripe_prod);
-            mobileApp.localSettings.removeItem('devmode');
-            window.plugins.toast.showShortBottom('Dev mode unactivated', function(a) {}, function(b) {});
-            $('.app').removeClass('devmode')
-        }
-        setTimeout(function() {
-            window.location = window.location.href.split('#')[0];
-        }, 1000);
-    }
-
     setupRouting() {
         super.setupRouting();
 
-        // check to see if this phone has had a user logged in before
-        if (this.localSettings.getItem('user') == undefined) { // brand new phone, so show them the welcome screen
-            this.changeApplicationState('#login');
-			setTimeout(function() {
-                navigator.splashscreen.hide();
-            }.bind(this), 1500);
-        } else {
-            this.um.checkLoginStatus();
-        }
+		var promise = this.api.getLoyaltySettings();
+		promise.done(data => {
+			this.loyaltySettings = data;
+            this.pn.init(this.settings,this.loyaltySettings);
+			// check to see if this phone has had a user logged in before
+	        if (this.localSettings.getItem('user') == undefined) { // brand new phone, so show them the welcome screen
+	            this.changeApplicationState('#welcome');
+				setTimeout(() => { navigator.splashscreen.hide(); }, 1500);
+	        } else {
+	            this.um.checkLoginStatus();
+	        }
+		});
     }
 
     onApplicationReady() {
@@ -188,32 +150,6 @@ class RanchApp extends MobileApp {
 
     checkForUpdate() { }
 
-    syncStatus(status) {
-        switch (status) {
-            case SyncStatus.DOWNLOADING_PACKAGE:
-                //this.alert("Downloading Update");
-                break;
-            case SyncStatus.INSTALLING_UPDATE:
-                //this.alert("Installing Update");
-                break;
-            case SyncStatus.UP_TO_DATE:
-                //this.alert("You are up to date");
-                break;
-            case SyncStatus.CHECKING_FOR_UPDATE:
-                //this.alert("Checking For update");
-                break;
-            case SyncStatus.IN_PROGRESS:
-                //this.alert("Syncing is in progress");
-                break;
-            case SyncStatus.ERROR:
-                //this.alert("There was an error");
-                break;
-            case SyncStatus.UPDATE_INSTALLED:
-                this.showChangeLog = false;
-
-                break;
-        }
-    }
 
     onMenuItemClicked(e) {
         e.preventDefault();
@@ -226,9 +162,6 @@ class RanchApp extends MobileApp {
         if (location.indexOf('signout') != -1) {
             mobileApp.confirm("Are you sure you want to sign out?", (index) => {
                 if (index == 1) {
-                    if (this.driftController) {
-                        window.drift.reset();
-                    }
                     setTimeout(() => {
                         mobileApp.um.logout(mobileApp.getContext());
                         mobileApp.sm.clearState();
@@ -256,16 +189,11 @@ class RanchApp extends MobileApp {
         super.onUserProfileChange(event);
         var location;
         if (this.um.userStatus == 'connected') {
-            // retrieve the last user mode that was used before the app closed.
-            if(this.um.currentUser.account_type == 'employee') {
-				location = '#admin';
-			}else{
-				location = '#home';
-			}
+
+            location = '#home';
 
 			mobileApp.um.currentUser.app_data.platform = cordova.platformId;
 
-            //this.checkForceUpdate();
             this.saveAppVersionNumber();
             this.updateUserProfile();
             this.updateNotificationCounts();
@@ -277,9 +205,8 @@ class RanchApp extends MobileApp {
                     this.handleOpenActions();
                 }, 1500);
             }
-            this.changeApplicationState(location, {
-                clearCache: true
-            });
+            this.changeApplicationState(location, { clearCache: true });
+
             setTimeout(function() {
                 navigator.splashscreen.hide();
             }.bind(this), 1500);
@@ -303,8 +230,6 @@ class RanchApp extends MobileApp {
     }
 
     checkForceUpdate() {
-        //console.log("Check for update",this.um.currentUser.app_data.needs_update)
-        //    if (this.um.currentUser.app_data.needs_update) {
         var promise = mobileApp.api.checkAppVersion();
         promise.done(data => {
             console.warn("Server Version:", data);
@@ -314,13 +239,7 @@ class RanchApp extends MobileApp {
                 var greaterThenMin = Utils.checkVersionString(version, data.minimum_version) >= 0; // ar we greater or equal to minimum_version
                 //console.log("isVersion",isVersion,'Greater then min',greaterThenMin);
                 if (((!isVersion && !greaterThenMin) && data.force_update)) {
-                    var store = cordova.platformId == 'ios' ? 'App Store' : "Play Store";
-                    new UserAssistant([{
-                        img: 'img/assets/app_update.png',
-                        title: "New Update",
-                        message: `<p>TradePros has an update ready.</p><p>Please download this update from the ${store} before continuing as it contains important fixes. </p>`,
-                        buttonLabel: ""
-                    }]).show(0);
+
                 } else {
                     delete this.um.currentUser.app_data.needs_update;
                     this.api.saveUserData();
@@ -343,7 +262,6 @@ class RanchApp extends MobileApp {
     updateUserProfile() {}
 
     onNotificationReceived(e, notification) {
-        console.log("notification received", notification);
         super.onNotificationReceived(e, notification);
 		if(notification.payload.additionalData && notification.payload.additionalData.action) {
 			switch(notification.payload.additionalData.action){
@@ -389,14 +307,6 @@ class RanchApp extends MobileApp {
 
         switch (action) {
             case "forgotpass":
-                let params = urlHandle.split("?goto=")[1];
-                // we now have a valid token.. so this will at least log us back in..
-                // but now we have to redirect to create a password
-                this.um.checkLoginStatus();
-                this.tempFuncForgotPass = () => {
-                    this.onForgotPassReady(params);
-                }
-                mobileApp.addEventListener("VIEW_LOADED", this.tempFuncForgotPass);
                 break;
         }
     }

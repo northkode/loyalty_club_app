@@ -4,7 +4,7 @@
 		<div class="form">
 			<img src="./img/main_logo.png">
 			<div class="option-holder">
-				<p>Join our loyalty rewards program and earn points for free golf, beverages, equipment and more!</p>
+				<p>Join our exclusive loyalty rewards program and save!</p>
 				<div class="systemButton button create-btn"> Create Account </div>
 				<div class="systemButton button show-login"> Login Account </div>
 				<div class="login-form">
@@ -27,7 +27,6 @@
 			<div class="create-form">
 				<button class="back"> <i class="fa fa-angle-left"></i> Back </button>
 				<h2>Create Account</h2>
-				<p style="color:white;margin-top:0;">Earn <strong style="color: rgb(255, 186, 20);" class="points_signup">100 free</strong> loyalty points when you signup.</p>
 				<div class="field">
 					<input type="text" name="first_name" placeholder="First Name" />
 				</div>
