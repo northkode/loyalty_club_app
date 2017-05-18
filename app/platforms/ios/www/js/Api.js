@@ -1,7 +1,7 @@
 class API {
-    constructor(server,customer_id) {
+    constructor(server) {
         this.token = null;
-        this.apiPath = server + "api/"+customer_id+'/';
+        this.apiPath = server + "api/club/";
         this.saveDataTimer = 0;
     }
 
@@ -82,7 +82,7 @@ class API {
     createUserAccount(userData) {
 		console.log(userData);
         return $.ajax({
-            url: this.apiPath + "user/signup",
+            url: this.apiPath + "user/create",
             data: userData,
             dataType: 'json',
             type: 'POST'

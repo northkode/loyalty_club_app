@@ -1,13 +1,12 @@
 require('./styles.scss');
 import DefaultAppView from "../../framework/core/DefaultAppView";
-import Smoke from "./smoke";
 
 class Login extends DefaultAppView {
+
     constructor(route, viewData) {
         super(route, viewData);
         this.template = _.template(require('./template.tpl'));
         this.clearAfterClose = true;
-
     }
 
     attachListeners() {
@@ -82,7 +81,12 @@ class Login extends DefaultAppView {
         });
         promise.fail(data => {
             $(e.currentTarget).removeClass('active');
-            mobileApp.alert(data.responseJSON.error, () => {}, "Signup Error");
+			var error = data.responseJSON.error;
+			if(error) {
+	            mobileApp.alert(error, () => {}, "Signup Error");
+			} else {
+	            mobileApp.alert('There was an error creating your account. Please contact support', () => {}, "Signup Error");
+			}
         });
     }
 
@@ -131,31 +135,7 @@ class Login extends DefaultAppView {
     }
 
     transitionFinished() {
-        var promise = mobileApp.api.getLoyaltySettings();
-        promise.done(data => {
-            this.getViewInstance().find('.points_signup').text(data.signup_points + " free");
-        });
-        if (cordova.platformId != "android" && $('html').hasClass('mini-device') == false) {
-            this.smoke = new Smoke({
-                height: 250
-            }, this.getViewInstance().find('.form'));
-            this.smoke.update();
-        }
-    }
 
-    disable() {
-        if (this.smoke) {
-            this.smoke.stop();
-        }
-    }
-
-    cleanup() {
-        if (this.smoke) {
-            this.smoke.stop();
-            this.smoke.cleanup()
-            this.smoke = null;
-        }
-        super.cleanup();
     }
 
 }

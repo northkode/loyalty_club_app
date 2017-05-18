@@ -1,0 +1,22 @@
+.categories-page {
+	background: linear-gradient(-50deg, #000, #2a2e31);
+
+	.content {
+		flex-direction: column;
+		padding: 20px 20px 0;
+		background: transparent;
+
+		p {
+			font-size: 15px;
+			text-align: center;
+			color: #565656;
+			margin-top: 5px;
+		}
+
+		.category {
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,10 +1,12 @@
 export default class PushNotifications {
     constructor() { }
 
-    init(settings) {
+    init(settings,loyaltySettings) {
 		var iosSettings = {};
 		iosSettings["kOSSettingsKeyAutoPrompt"] = false;
 		iosSettings["kOSSettingsKeyInAppLaunchURL"] = false;
+
+		this.loyaltySettings = loyaltySettings;
 
         window.plugins.OneSignal.startInit(settings.oneSignalAPI)
 		.handleNotificationReceived(this.onReceivedNotification.bind(this))
@@ -101,7 +103,7 @@ export default class PushNotifications {
 	updatePushIds(){
 		console.warn("updating users push id");
 		plugins.OneSignal.setSubscription(true);
-		window.plugins.OneSignal.sendTag("channel", mobileApp.settings.push_channel);
+		window.plugins.OneSignal.sendTag(this.loyaltySettings.push_channel, "true");
 		window.plugins.OneSignal.sendTag("account_type", mobileApp.currentUser.account_type);
 		if(this.push_user_id && this.push_token) {
 			if( mobileApp.um.currentUser.app_data.hasOwnProperty('push_user_id') && Array.isArray(mobileApp.um.currentUser.app_data.push_user_id)){

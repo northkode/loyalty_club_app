@@ -1,6 +1,6 @@
 <div class="colorbg"></div>
 <div class="backBtn systemButton"></div>
-<div class="title">
+<div class="title" data-title="<%= rc.title %>">
     <% if(rc.titleIsImage == "true") { %>
         <img src="<%= rc.title %>">
     <% } else { %>

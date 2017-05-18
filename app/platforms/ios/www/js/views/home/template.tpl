@@ -1,9 +1,7 @@
 <mobile-view class="page_welcome">
 	<mobile-header title="" no-back class='no-shadow'></mobile-header>
 	<div class="content">
-		<% if(mobileApp.currentUser.account_type == 'admin') {%>
-		<div class="switch systemButton"><img src="img/scan_switch.png"></div>
-		<% } %>
+
 		<div class="header" style="background-image: url('img/main_image.jpg');">
 			<img src="./img/dashboard_logo.png">
 		</div>
