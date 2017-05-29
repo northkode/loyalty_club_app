@@ -4,15 +4,14 @@
 		<p class="title">Categories</p>
 	</div>
 	<div class="content">
-		<div class="category">
+		<div class="category systemButton" data-id="1">
 			<img src="img/categories/golf.png">
 		</div>
-		<div class="category">
+		<div class="category systemButton" data-id="2">
 			<img src="img/categories/restaurants.png">
 		</div>
-		<div class="category">
+		<div class="category systemButton" data-id="3">
 			<img src="img/categories/retail.png">
 		</div>
-		<p>Check back soon, we are adding more loyalty programs monthly</p>
 	</div>
 </mobile-view>

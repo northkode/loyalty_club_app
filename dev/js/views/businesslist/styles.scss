@@ -1,0 +1,54 @@
+.customer-page {
+	background: linear-gradient(-50deg, #000, #2a2e31);
+
+	.content {
+		flex-direction: column;
+		padding: 20px 20px 0;
+		background: transparent;
+
+		p {
+			font-size: 15px;
+			text-align: center;
+			color: #565656;
+			margin-top: 5px;
+		}
+
+		.customers {
+			margin-bottom: 10px;
+		}
+
+		.customer {
+			background: #333;
+			margin-bottom: 10px;
+			overflow: hidden;
+			position: relative;
+			border-radius: 4px;
+
+			.image {
+				height: 120px;
+				background-size: cover;
+				background-position: center center;
+			}
+
+			.details {
+				padding: 10px;
+				background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.84) 83.61%);
+				color: white;
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+
+				h3 {
+					font-style: italic;
+					font-size: 23px;
+					text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+				}
+
+				.region {
+					font-weight: 400;
+					margin-top: -5px;
+				}
+			}
+		}
+	}
+}

@@ -41,23 +41,13 @@ mobile-header {
 		text-overflow: ellipsis;
 		left: 50%;
 		transform: translateX(-50%);
-		font-family: "Cormorant SC";
+		font-family: "Lato";
+		font-style:italic;
 		background: linear-gradient(#ececec, #8a8a8a);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-
-		@include android() {
-			width: calc(100% - 140px);
-		}
-		@include iPhone5() {
-			width: calc(100% - 140px);
-		}
-		@include iPhone6() {
-			width: calc(100% - 140px);
-		}
-		@include iPhone6Plus() {
-			width: calc(100% - 140px);
-		}
+		width: calc(100% - 100px);
+	
 		@include iPad() {
 			line-height: 80px;
 		};
