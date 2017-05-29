@@ -8,7 +8,7 @@
 				<img src="<%= mobileApp.settings.imageURL + rc.logo_path %>" />
 			</div>
 			<%}%>
-			<div class="details" style="<%= (!rc.has_logo) ? 'margin-top:auto': '' %>" >
+			<div class="details"  >
 				<h3><%= rc.name %></h3>
 				<p class="address">
 					<%= rc.address %>
