@@ -1,0 +1,177 @@
+.program-page {
+	background: #0e0e0e;
+
+	.content {
+		flex-direction: column;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: transparent;
+
+		.header {
+			height: 50%;
+			position: relative;
+			background-size: cover;
+			padding: 0px 30px;
+			margin-bottom: -0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			.logo {
+				width: 30%;
+				position: relative;
+				z-index: 2;
+				margin: auto auto 10px;
+
+				img {
+					width: 100%;
+				}
+				margin-bottom: 10px;
+			}
+
+			&:after {
+				content: "";
+				background: rgba(0, 0, 0, .6);
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 0;
+			}
+
+			&:before {
+				content: "";
+				position: absolute;
+				bottom: -10px;
+				width: 100%;
+				height: 70px;
+				left: 0;
+				z-index: 2;
+				background: linear-gradient(to top, #0e0e0e 29.83%, transparent);
+			}
+
+			.details {
+				position: relative;
+				z-index: 4;
+				text-align: center;
+				color: white;
+
+				h3 {
+					font-style: italic;
+					font-size: 23px;
+					text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+					padding: 0 30px;
+					@include small-device() {
+						padding: 0;
+					};
+				}
+
+				.address {
+					font-weight: 400;
+					margin-top: -5px;
+				}
+
+				.phone {
+					font-weight: 100;
+					margin-top: -5px;
+				}
+			}
+		}
+
+		.join-program {
+			width: 60%;
+			padding: 5px;
+			background: linear-gradient(0deg, #8a8a8a, #fff);
+			box-shadow: 0 4px 10px rgba(0, 0, 0, .7);
+			font-family: Lato;
+			font-style: italic;
+			font-size: 20px;
+			color: #000 !important;
+			font-weight: 700;
+			z-index: 10;
+			margin-top: auto;
+			margin-bottom: 20px;
+		}
+
+		.rewards {
+			padding: 10px 20px;
+			color: white;
+			position: relative;
+			z-index: 5;
+
+			h1 {
+				font-family: "Lato";
+				font-style: italic;
+				background: linear-gradient(#ececec, #8a8a8a);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				text-align: center;
+				margin: 0 0 10px;
+			}
+
+			.swiper-pagination {
+				width: 100%;
+				bottom: auto;
+				top: 0;
+				position: relative;
+
+				.swiper-pagination-bullet {
+					background: white;
+					margin-right: 10px;
+					width: 5px;
+					height: 5px;
+				}
+			}
+
+			.swiper-container {
+				width: 100%;
+				margin: auto;
+				opacity: 0;
+				transition: opacity 0.3s ease-out;
+
+				.swiper-wrapper {
+					padding: 10px;
+				}
+
+				.swiper-slide {
+					width: 250px;
+					@include small-device() {
+						width: 200px;
+					};
+
+					.image {
+						width: 100%;
+						background-size: cover;
+						background-position: center center;
+						background-repeat: no-repeat;
+						border-radius: 5px;
+						overflow: hidden;
+						margin-bottom: 5px;
+						height: 190px;
+						@include small-device() {
+							height: 120px;
+						};
+					}
+
+					.title {
+						font-weight: 600;
+						font-style: italic;
+						padding-top: 5px;
+						padding-bottom: 5px;
+						font-size: 16px;
+					}
+				}
+
+				&.active {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

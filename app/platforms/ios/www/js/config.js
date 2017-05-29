@@ -4,8 +4,9 @@
 let config = {
 	title: 'The Loyalty Club',
 	prod_server: "https://loyaltyclub.loyaltyapp.org/",
-	dev_server: "https://loyaltyclub.loyaltyapp.org/",
+	dev_server: "http://loyalty.theranch.com/",
     imageURL:"https://loyaltyclub.loyaltyapp.org/uploads/",
+	customer_id:"", // used for custom app designs
 	push_channel:"loyalty_club",
 	oneSignalAPI:"37b55bec-2e85-4fa9-9321-a172bd0d86f9",
 	ga: 'UA-86494014-1',

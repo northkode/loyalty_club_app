@@ -23,6 +23,8 @@ import Admin from './views/admin/index';
 import Profile from './views/profile/index';
 import ProfileEdit from './views/profile_edit/index';
 import Events from './views/events/index';
+import BusinessList from './views/businesslist/index';
+import Program from './views/loyalty_program/index';
 
 class RanchApp extends MobileApp {
     constructor(settings) {
@@ -40,7 +42,8 @@ class RanchApp extends MobileApp {
         StateManager.registerState('admin', Admin);
         StateManager.registerState('profile', Profile);
         StateManager.registerState('edit', ProfileEdit);
-        StateManager.registerState('events', Events);
+        StateManager.registerState('businesslist', BusinessList);
+        StateManager.registerState('program', Program);
 
 		var analytics = navigator.analytics;
 		if(analytics) {
@@ -54,7 +57,7 @@ class RanchApp extends MobileApp {
     init() {
         super.init();
 
-		this.api = new API(this.localSettings.getItem('devmode') === 'true' ? this.settings.dev_server : this.settings.prod_server); // server api helper
+		this.api = new API(this.settings.prod_server); // server api helper
 
 		console.log("app initializing...");
 
