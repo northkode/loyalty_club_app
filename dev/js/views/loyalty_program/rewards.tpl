@@ -8,7 +8,7 @@ for(var i=0; i < rewards.length; i++){
 		<%= rewards[i].title %>
 	</div>
 	<div class="points"  style="pont-size: 14px">
-		<%= rewards[i].costs %> pts
+		<%= rewards[i].cost %> pts
 	</div>
 </div>
 
