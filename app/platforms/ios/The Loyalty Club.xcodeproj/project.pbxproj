@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C06DB569534A17B1B317BF /* OneSignalHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9E5C7CA5174AAF85255C0C /* OneSignalHTTPClient.m */; };
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };

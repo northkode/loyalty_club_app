@@ -22,12 +22,17 @@ class BusinessList extends DefaultAppView {
 			}
 		}
 
+		// if i am logged in make sure the programs i'm browsing show my enrolled status
+		if(mobileApp.currentUser){
+		 	var customers = mobileApp.currentUser.programs.filter(program => { return program.id == customer.id });
+			if(customers.length == 1){
+				customer = customers[0]; // use the customer data from the logged in person so it shows points and other activity
+			}
+		}
 		mobileApp.changeApplicationState('#program',{viewData:customer});
 	}
 
-	transitionFinished() {
-
-	}
+	transitionFinished() { }
 
 }
 

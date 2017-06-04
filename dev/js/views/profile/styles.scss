@@ -1,7 +1,13 @@
 .profile_page {
+	background: $background;
+
 	mobile-header {
 		background: 0 0;
 		position: absolute;
+
+		.icon {
+			top:30px;
+		}
 
 		.title {
 			color: white;
@@ -10,7 +16,10 @@
 
 	.content {
 		padding-top: 70px;
-		background-color: #000;
+		background: transparent;
+		flex-direction: column;
+		overflow-y: auto;
+		-webkit-overflow-scrolling:touch;
 
 		.bg-image {
 			position: absolute;
@@ -19,15 +28,93 @@
 			width: 100%;
 			height: 100%;
 			background-size: cover;
-			filter: blur(10px);
-			opacity: 0.4;
+			opacity: 0.8;
 			z-index: 99;
 			background-position: center center;
+			background: linear-gradient(-50deg, #000, #2a2e31);
 		}
 
 		.edit-photo {
 			position: absolute;
 			bottom: 0;
+		}
+	}
+
+	.options {
+		background: rgb(225, 225, 225);
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+
+		.tabbar {
+			width: 100%;
+			border-radius: 0;
+			border: 0px solid #848c8e;
+			position: relative;
+			z-index: 10;
+			display: flex;
+			align-items: stretch;
+			max-height: 40px;
+			flex-shrink: 0;
+			min-height: 40px;
+			background: white;
+			margin:0;
+			margin-bottom:20px;
+			background:#848c8e;
+
+			.tabbar__tab {
+				color: #848c8e;
+				font-size: 15px;
+				border-radius: 0!important;
+				background:white;
+				&.active{
+					color: white;
+					background:#848c8e;
+				}
+			}
+		}
+
+		.tab__content {
+			ul {
+				margin: 0;
+				padding: 0;
+				background: white;
+				width: 100%;
+				border-bottom: 1px solid #dfdfdf;
+				border-top: 1px solid #dfdfdf;
+
+				li {
+					list-style: none;
+					padding: 10px 0;
+					margin-left: 10px;
+					font-size: 14px;
+					display: flex;
+					align-items: center;
+					color: #333;
+					font-weight: 400;
+					border-bottom: 1px solid #dfdfdf;
+
+					&.spacer {
+						border: none;
+						background: rgb(225, 225, 225);
+						border-bottom: 1px solid #dfdfdf;
+						border-top: 1px solid #dfdfdf;
+						margin-left:0;
+						&:after {
+							content: "";
+						}
+					}
+
+					&:after {
+						content: "\f054";
+						font-family: FontAwesome;
+						font-size: 12px;
+						color: #d1d1d1;
+						margin-left: auto;
+						margin-right: 10px;
+					}
+				}
+			}
 		}
 	}
 
@@ -39,31 +126,51 @@
 		justify-content: center;
 		position: relative;
 		z-index: 100;
+		flex-shrink: 0;
+		padding-bottom: 10px;
+
+		profile-image {
+			margin-bottom: 10px;
+		}
 
 		h2 {
-			color: white;
+			color: #fff;
 			text-align: center;
 			font-size: 30px;
-			font-family: bree;
-			font-weight: 100;
+			font-style: italic;
+			font-weight: 700;
+			text-transform: uppercase;
 			margin-bottom: 0;
 		}
 
 		h4 {
-			font-weight: 100;
-			color: #848484;
+			font-weight: 400;
+			color: #ababab;
 			text-align: center;
 			font-size: 12px;
+			margin-top: 5px;
+			text-transform: uppercase;
 		}
 
 		.systemButton {
 			background: white;
+
+			&.edit {
+				background: linear-gradient(0deg, #8a8a8a, #fff);
+				box-shadow: 0 4px 10px rgba(0, 0, 0, .7);
+				color: #000!important;
+				font-weight: bold;
+			}
 
 			&.logout {
 				position: absolute;
 				bottom: 20px;
 				left: 50%;
 				transform: translateX(-50%);
+				background: linear-gradient(0deg, #8a8a8a, #fff);
+				box-shadow: 0 4px 10px rgba(0, 0, 0, .7);
+				color: #000!important;
+				font-weight: bold;
 			}
 		}
 	}

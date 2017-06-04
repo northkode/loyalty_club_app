@@ -355,7 +355,8 @@ module.exports.metadata =
     "cordova-plugin-themeablebrowser": "0.2.17",
     "cordova-plugin-whitelist": "1.3.0",
     "cordova-plugin-x-toast": "2.5.2",
-    "onesignal-cordova-plugin": "2.0.8"
+    "onesignal-cordova-plugin": "2.0.8",
+    "cordova-plugin-ios-camera-permissions": "1.1.1"
 };
 // BOTTOM OF METADATA
 });

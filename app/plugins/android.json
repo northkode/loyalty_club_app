@@ -71,6 +71,9 @@
         },
         "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "org.theloyaltyclub"
+        },
+        "cordova-plugin-ios-camera-permissions": {
+            "PACKAGE_NAME": "org.theloyaltyclub"
         }
     },
     "dependent_plugins": {

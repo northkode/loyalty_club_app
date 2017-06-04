@@ -10,9 +10,9 @@
 			for(var i=0; i < rc.category.customers.length; i++){
 				var customer = rc.category.customers[i];
 			%>
-				<li class="customer systemButton" data-id="<%= customer.id %>">
+				<li class="customer" data-id="<%= customer.id %>">
 					<div class="image" style="background-image:url(<%= mobileApp.settings.imageURL + customer.image_path %>)"></div>
-					<div class="details">
+					<div class="details systemButton">
 						<h3 class="title"><%= customer.name %></h3>
 						<div class="region">
 							<%= customer.region %>

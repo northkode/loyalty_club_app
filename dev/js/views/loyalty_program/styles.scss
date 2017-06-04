@@ -1,5 +1,28 @@
 .program-page {
-	background: #0e0e0e;
+	background: #0c0c0c;
+
+	mobile-header {
+		.icon {
+			top: 30px;
+		}
+	}
+
+	.join-program {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+		border-radius: 0;
+		padding: 10px;
+		color: #fff !important;
+		font-weight: 700;
+		font-style: italic;
+		font-size: 17px;
+		background-image: -webkit-linear-gradient(bottom, #fca00d, #ffc325);
+		background: #fca00d;
+		margin: 0;
+	}
 
 	.content {
 		flex-direction: column;
@@ -7,31 +30,41 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: 100%;
+		height: calc(100% - 40px);
 		width: 100%;
-		background: transparent;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		background: rgb(235, 235, 235);
+
+		&.enrolled {
+			padding-bottom: 0;
+			height: calc(100%);
+		}
 
 		.header {
-			height: 50%;
+			min-height: 45%;
 			position: relative;
 			background-size: cover;
-			padding: 20px 30px 0;
-			margin-bottom: -0px;
+			padding: 20px 40px 0;
+			margin-bottom: 0;
 			display: flex;
-			justify-content: center;
 			align-items: center;
+			justify-content: center;
+			flex: none;
+			height: auto;
+			overflow: hidden;
 			flex-direction: column;
+			padding-bottom: 10px;
 
 			.logo {
 				width: 30%;
 				position: relative;
 				z-index: 2;
-				margin: auto auto 10px;
+				margin-bottom: 10px;
 
 				img {
 					width: 100%;
 				}
-				margin-bottom: 10px;
 			}
 
 			&:after {
@@ -43,17 +76,6 @@
 				width: 100%;
 				height: 100%;
 				z-index: 0;
-			}
-
-			&:before {
-				content: "";
-				position: absolute;
-				bottom: -10px;
-				width: 100%;
-				height: 70px;
-				left: 0;
-				z-index: 2;
-				background: linear-gradient(to top, #0e0e0e 29.83%, transparent);
 			}
 
 			.details {
@@ -78,29 +100,122 @@
 				}
 
 				.phone {
-					font-weight: 100;
 					margin-top: -5px;
+					display: inline;
+					padding: 2px 10px;
+					border-radius: 50px;
+					font-weight: 500;
+					font-size: 10px;
+					background: linear-gradient(0deg, #8a8a8a, #fff);
+					box-shadow: 0 4px 10px rgba(0, 0, 0, .7);
+					color: #000!important;
 				}
 			}
 		}
 
-		.join-program {
-			width: 60%;
-			padding: 5px;
-			background: linear-gradient(0deg, #8a8a8a, #fff);
-			box-shadow: 0 4px 10px rgba(0, 0, 0, .7);
-			font-family: Lato;
-			font-style: italic;
-			font-size: 20px;
-			color: #000 !important;
-			font-weight: 700;
+		.bar-code {
+			width: 50%;
+			position: relative;
 			z-index: 10;
-			margin-bottom: 20px;
+		}
+
+		.tabbar {
+			margin: 0;
+			width: 100%;
+			border-radius: 0;
+			background: white;
+			border: 0;
+
+			.tabbar__tab {
+				color: #848c8e;
+				font-size: 15px;
+				padding: 10px;
+				border-radius: 0!important;
+
+				&.active {
+					color: white;
+				}
+			}
+		}
+
+		.tab__content {
+			&.active {
+				display: flex;
+				flex-direction: column;
+			}
+			flex: 1;
+		}
+
+		.leave-program {
+			padding: 10px;
+			text-align: center;
+			color: red;
+			font-weight: bold;
+			background: rgba(255, 255, 255, 0.08);
+			margin-top: auto;
+		}
+
+		.tab__content {
+			h2 {
+				color: #333;
+				padding: 10px 15px 0;
+				font-size: 14px;
+			}
+		}
+
+		.details-holder {
+			margin: 0;
+			padding: 0;
+			background: white;
+			width: 100%;
+			border-bottom: 1px solid #dfdfdf;
+			border-top: 1px solid #dfdfdf;
+
+			li {
+				list-style: none;
+				padding: 20px 0;
+				margin-left: 30px;
+				font-size: 14px;
+				display: flex;
+				align-items: center;
+				color: #333;
+				font-weight: 400;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid #dfdfdf;
+				}
+
+				i {
+					margin-left: -20px;
+					margin-right: 10px;
+				}
+
+				&.spacer {
+					border: none;
+					background: rgb(225, 225, 225);
+					border-bottom: 1px solid #dfdfdf;
+					border-top: 1px solid #dfdfdf;
+					margin-left: 0;
+
+					&:after {
+						content: "";
+					}
+				}
+
+				&:after {
+					content: "\f054";
+					font-family: FontAwesome;
+					font-size: 12px;
+					color: #d1d1d1;
+					margin-left: auto;
+					margin-right: 10px;
+				}
+			}
 		}
 
 		.rewards {
-			padding: 10px 20px;
-			color: white;
+			padding: 10px;
+			color: #333;
 			position: relative;
 			z-index: 5;
 
@@ -114,61 +229,60 @@
 				margin: 0 0 10px;
 			}
 
-			.swiper-pagination {
-				width: 100%;
-				bottom: auto;
-				top: 0;
-				position: relative;
+			.reward {
+				display: flex;
+				padding: 0 10px;
+				margin: 0 -10px;
+				background: white;
+				align-items: stretch;
 
-				.swiper-pagination-bullet {
-					background: white;
-					margin-right: 10px;
-					width: 5px;
-					height: 5px;
-				}
-			}
+				.points {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: center;
+					font-size: 20px;
+					color: #bec1bf;
 
-			.swiper-container {
-				width: 100%;
-				margin: auto;
-				opacity: 0;
-				transition: opacity 0.3s ease-out;
+					.amt {
+						display: flex;
+						flex-direction: column;
+						text-align: center;
+						font-weight: 400;
 
-				.swiper-wrapper {
-					padding: 10px;
-				}
-
-				.swiper-slide {
-					width: 250px;
-					@include small-device() {
-						width: 200px;
-					};
-
-					.image {
-						width: 100%;
-						background-size: cover;
-						background-position: center center;
-						background-repeat: no-repeat;
-						border-radius: 5px;
-						overflow: hidden;
-						margin-bottom: 5px;
-						height: 190px;
-						@include small-device() {
-							height: 120px;
-						};
+						span {
+							font-weight: 100;
+							font-size: 11px;
+						}
 					}
 
-					.title {
-						font-weight: 600;
-						font-style: italic;
-						padding-top: 5px;
-						padding-bottom: 5px;
-						font-size: 16px;
+					i {
+						display: none;
+						margin-right: 10px;
+					}
+
+					&.locked {
+						i {
+							display: block;
+						}
 					}
 				}
 
-				&.active {
-					opacity: 1;
+				.title {
+					display: flex;
+					align-items: center;
+					flex: 1;
+					padding: 20px 0;
+					font-size: 15px;
+					font-weight: 400;
+					margin-left: 20px;
+
+				}
+
+				&:not(:last-child) {
+					.title {						
+						border-bottom: 1px solid #dfdfdf;
+					}
 				}
 			}
 		}

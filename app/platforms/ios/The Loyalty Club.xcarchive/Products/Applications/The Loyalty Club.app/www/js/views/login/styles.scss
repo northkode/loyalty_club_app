@@ -1,8 +1,7 @@
 .login_page {
-	background: #000;
+	background: $background;
 
 	mobile-header {
-		display: none;
 		background: transparent;
 
 		.title {
@@ -15,28 +14,67 @@
 		padding: 0;
 		background: transparent;
 
-		&:after {
-			position: absolute;
-			top: 205px;
+		.login-form {
+			z-index: 100;
+			width: 70%;
+			color: #fff;
+			text-align: center;
+			flex-direction: column;
+			align-items: center;
 
-			.small-device & {
-				top: 135px;
+			.systemButton {
+				color: #333;
+				position: relative;
+				margin:0 auto;
+
+				.spinner {
+					display: none;
+					top: 25%;
+					left: 45%;
+				}
+
+				&.active {
+					text-indent: -9999px;
+
+					.spinner {
+						display: block;
+					}
+				}
 			}
 
-			.iphone6plus & {
-				top: 235px;
+			h2 {
+				font-style: italic;
+				font-size: 25px;
+				margin-top: 0;
+				margin-bottom: 10px;
 			}
-			.iPad & {
-				top: 505px;
+
+			.field {
+				margin-bottom: 10px;
+				width: 100%;
+				@include mini() {
+					margin-bottom: 0;
+				};
+
+				input {
+					width: 100%;
+					border: none;
+					padding: 10px;
+					background: transparent;
+					border-bottom: 2px solid rgb(58, 58, 58);
+					border-radius: 0;
+					font-size: 15px;
+					text-align: center;
+					color: white;
+				}
 			}
-			left: -20px;
-			content: "";
-			width: 413%;
-			height: 115px;
-			background: -webkit-linear-gradient(top, transparent, #000);
-			background: -webkit-linear-gradient(top, transparent, #000);
-			background: linear-gradient(180deg, transparent 0, #000);
-			z-index: -1;
+
+			.birthday + span {
+				margin-top: -10px;
+				@include small-device() {
+					margin-top: 0;
+				};
+			}
 		}
 
 		.form {
@@ -48,7 +86,6 @@
 			align-items: center;
 
 			img {
-				display: none;
 				width: 80%;
 				margin-bottom: 20px;
 				position: relative;
@@ -57,25 +94,11 @@
 					display: block;
 				};
 				@include mini() {
-					display:block;
-					margin-top:0px;
+					display: block;
+					margin-top: 0;
 				};
 			}
 
-			canvas {
-				position: absolute;
-				top: 0;
-				z-index: -1;
-				left: 0;
-			}
-
-			.back-to-options {
-				background: #333;
-				color: white!important;
-				margin-top: 20px;
-			}
-
-			.create-form,
 			.forgot-password-modal {
 				position: absolute;
 				top: 0;
@@ -88,10 +111,10 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				background: #000;
+				background: linear-gradient(310deg, #000, #272b2e);
 				display: flex;
 				@include mini() {
-					padding:20px;
+					padding: 20px;
 				};
 
 				.back {
@@ -125,7 +148,6 @@
 				}
 
 				h2 {
-					font-family: bree;
 					font-size: 20px;
 					margin-top: 0;
 					margin-bottom: 10px;
@@ -165,112 +187,13 @@
 				}
 			}
 
-			.option-holder {
-				margin-top: auto;
-				will-change: transform;
-				transition: transform 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000);
-				position: relative;
-				width: 100%;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				margin-bottom: 30px;
-
-				@include mini() {
-					margin-bottom:0;
-				};
-
-				> p {
-					color: white;
-					text-align: center;
-					font-size: 15px;
-					padding: 20px 30px;
-				}
-
-				&.login {
-					transform: translateX(-105%);
-
-					.login-form {
-						display: flex;
-					}
-				}
-
-				.login-form {
-					z-index: 100;
-					display: none;
-					width: 100vw;
-					position: absolute;
-					top: 50%;
-					left: 100%;
-					transform: translateY(-60%);
-					display: none;
-					color: white;
-					flex-direction: column;
-					align-items: center;
-
-					.systemButton {
-						color: #333;
-						position: relative;
-
-						.spinner {
-							display: none;
-							top: 25%;
-							left: 45%;
-						}
-
-						&.active {
-							text-indent: -9999px;
-
-							.spinner {
-								display: block;
-							}
-						}
-					}
-
-					h2 {
-						font-family: bree;
-						font-size: 20px;
-						margin-top: 0;
-						margin-bottom: 10px;
-					}
-
-					.field {
-						margin-bottom: 10px;
-						width: 60%;
-
-						@include mini() {
-							margin-bottom:0;
-						};
-
-						input {
-							width: 100%;
-							border: none;
-							padding: 10px;
-							background: transparent;
-							border-bottom: 2px solid rgb(58, 58, 58);
-							border-radius: 0;
-							font-size: 15px;
-							text-align: center;
-							color: white;
-						}
-					}
-
-					.birthday + span {
-						margin-top: -10px;
-						@include small-device() {
-							margin-top: 0;
-						};
-					}
-				}
-			}
-
 			.systemButton {
 				background: white;
 				padding: 10px 20px;
 				border-radius: 4px;
 				font-size: 18px;
-				font-family: "bree";
-				margin: 10px 0;
+				font-weight: 600;
+				margin: 10px auto;
 				width: 60%;
 				text-align: center;
 			}
@@ -281,22 +204,5 @@
 				text-align: center;
 			}
 		}
-	}
-}
-
-canvas {
-	height: auto;
-	max-width: 100%;
-	vertical-align: middle;
-	height: 300px!important;
-
-	.small-device & {
-		height: 250px!important;
-	}
-	.iphone6plus & {
-		height: 400px!important;
-	}
-	.iPad & {
-		height: 600px!important;
 	}
 }

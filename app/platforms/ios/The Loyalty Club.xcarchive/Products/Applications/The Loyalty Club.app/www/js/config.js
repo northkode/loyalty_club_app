@@ -4,7 +4,7 @@
 let config = {
 	title: 'The Loyalty Club',
 	prod_server: "https://loyaltyclub.loyaltyapp.org/",
-	dev_server: "http://loyalty.theranch.com/",
+	dev_server: "http://loyalty.theranch.com/",//"http://loyalty.theranch.com/",
     imageURL:"https://loyaltyclub.loyaltyapp.org/uploads/",
 	customer_id:"", // used for custom app designs
 	push_channel:"loyalty_club",

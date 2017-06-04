@@ -76,7 +76,7 @@ class UserManager {
                     mobileApp.um.currentUser = status;
                 });
                 promise.fail(function(){
-                    mobileApp.changeApplicationState('#login');
+                    mobileApp.changeApplicationState('#welcome');
                     window.plugins.toast.showShortBottom('Session has expired', function(a){}, function(b){});
                     mobileApp.localSettings.removeItem('token');
                     mobileApp.localSettings.removeItem('context');

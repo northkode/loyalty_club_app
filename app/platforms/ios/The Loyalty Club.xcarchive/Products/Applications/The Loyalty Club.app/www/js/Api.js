@@ -107,6 +107,39 @@ class API {
         });
     }
 
+	/**
+	 * [getLoyaltyPrograms description]
+	 * @method getLoyaltyPrograms
+	 * @param  {[type]} user_id [description]
+	 * @return {[type]} [description]
+	 */
+	getLoyaltyPrograms(user_id) {
+		return $.ajax({
+			url: this.apiPath + `user/${user_id}/programs`,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+			}.bind(this),
+			dataType: 'json',
+			type: 'GET'
+		});
+	}
+
+	/**
+     *
+     * @param formData
+     * @returns {*}
+     */
+    joinProgram(customer_id,user_id) {
+        return $.ajax({
+            url: this.apiPath + `user/${user_id}/enroll/${customer_id}`,
+			beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+            }.bind(this),
+            dataType: 'json',
+            type: 'POST'
+        });
+    }
+
 
 	/**
      *
@@ -144,7 +177,7 @@ class API {
      */
     getCategories() {
         return $.ajax({
-            url: this.apiPath + "business/categories",            
+            url: this.apiPath + "business/categories",
             type: 'GET',
             dataType: 'json'
         });

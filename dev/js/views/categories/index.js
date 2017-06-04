@@ -11,6 +11,10 @@ class Login extends DefaultAppView {
     attachListeners() {
         super.attachListeners();
         this.registerListener('click', this.categorySelected, '.category');
+
+		// onboarding controls
+        this.registerListener('click', this.startOnboarding, '.onboarding .welcome > button.start');
+        this.registerListener('click', this.finishOnboarding, '.onboarding .finish');
     }
 
 	categorySelected(e){
@@ -30,12 +34,31 @@ class Login extends DefaultAppView {
 		}
 	}
 
+	startOnboarding() {
+	    this.getViewInstance().find('.onboarding').addClass('start');
+	}
+
+	finishOnboarding() {
+	    this.getViewInstance().find('.onboarding').removeClass('active');
+	    mobileApp.localSettings.setItem('onboarding',true);
+	}
+
     transitionFinished() {
 		var promise = mobileApp.api.getCategories();
-		promise.done(data=>{
+		promise.done(data => {
 			console.log(data);
 			this.categories = data;
-		})
+		});
+
+		if (mobileApp.localSettings.getItem('onboarding') == undefined) {
+            this.getViewInstance().find('.onboarding').addClass('active');
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: false
+            });
+        }else if(mobileApp.currentUser && mobileApp.currentUser.app_data.push_token == undefined){
+			mobileApp.pn.registerPush();
+		}
     }
 
 }

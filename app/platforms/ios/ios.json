@@ -99,11 +99,27 @@
                         {
                             "xml": "<string>The camera is used to scan QR codes.</string>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<string>This app needs camera access</string>",
+                            "count": 1
                         }
                     ],
                     "UIBackgroundModes": [
                         {
                             "xml": "<array><string>remote-notification</string></array>",
+                            "count": 1
+                        }
+                    ],
+                    "NSMicrophoneUsageDescription": [
+                        {
+                            "xml": "<string>This app needs microphone access</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSPhotoLibraryUsageDescription": [
+                        {
+                            "xml": "<string>This app needs photo library access</string>",
                             "count": 1
                         }
                     ]
@@ -197,6 +213,12 @@
             "PACKAGE_NAME": "org.theloyaltyclub"
         },
         "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "org.theloyaltyclub"
+        },
+        "cordova-plugin-ios-camera-permissions": {
+            "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
+            "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs photo library access",
             "PACKAGE_NAME": "org.theloyaltyclub"
         }
     },
@@ -573,6 +595,7 @@
         "cordova-plugin-themeablebrowser": "0.2.17",
         "cordova-plugin-whitelist": "1.3.0",
         "cordova-plugin-x-toast": "2.5.2",
-        "onesignal-cordova-plugin": "2.0.8"
+        "onesignal-cordova-plugin": "2.0.8",
+        "cordova-plugin-ios-camera-permissions": "1.1.1"
     }
 }

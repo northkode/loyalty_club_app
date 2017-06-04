@@ -1,15 +1,17 @@
 mobile-view {
 	background: #2a2b2a;
 	display: flex;
-	flex:1;
-	height:100%;
+	flex: 1;
+	height: 100%;
 	flex-direction: column;
 	backface-visibility: hidden;
 	transform: translate3d(0, 0, 0);
-	-webkit-user-select:none;
+	-webkit-user-select: none;
+
 	* {
-		-webkit-user-select:none;
+		-webkit-user-select: none;
 	}
+
 	input,
 	textarea {
 		-webkit-user-select: auto !important;
@@ -19,20 +21,23 @@ mobile-view {
 	&.active {
 		display: block;
 	}
+
 	.wrap {
 		min-height: 100%;
 		padding-bottom: 1px;
 		transform: translateZ(0);
 	}
+
 	.content {
 		display: flex;
-		position:relative;
+		position: relative;
 		flex: 1;
 		padding: 0;
 		overflow: hidden;
 		color: #333;
-		background-color:#222;
+		background-color: #222;
 		transform: translateZ(0);
+
 		> .title {
 			font-family: "harabarabold";
 			color: white;
@@ -44,6 +49,7 @@ mobile-view {
 			margin-bottom: 10px;
 			padding: 0 10px;
 		}
+
 		> .description {
 			font-family: "prelo_lightlight";
 			color: white;
@@ -59,6 +65,7 @@ mobile-view {
 		text-align: center;
 		padding: 10px;
 		display: none;
+
 		.continue {
 			color: $app-highlight;
 			font-family: "harabarabold";
@@ -66,23 +73,28 @@ mobile-view {
 			text-transform: uppercase;
 			font-size: 20px;
 		}
+
 		.step-count {
 			color: #b2b2b2;
 			font-size: 14px;
 		}
 	}
+
 	.tip {
-		font-family: prelo_lightlight;
-		font-size: 14px;
-		span {
-			font-family: "harabarabold";
-			font-size: 14px;
-			letter-spacing: 1px;
-		}
+		color: white;
+		font-family: Lato;
+		font-size: 11px;
 		width: 70%;
 		text-align: center;
-		margin: 5px auto;
+		margin: 0px auto;
+
+		span {
+			font-family: "Lato";
+			font-size: 14px;
+			font-weight: 700;
+		}
 	}
+
 	&[type='overlay'] {
 		position: absolute;
 		top: 0;

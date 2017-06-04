@@ -28,10 +28,23 @@
     <string>0.2.0</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+    </dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string/>
     <key>NSMainNibFile</key>
     <string/>
     <key>NSMainNibFile~ipad</key>
     <string/>
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>remote-notification</string>
+    </array>
+    <key>UIRequiresFullScreen</key>
+    <true/>
     <key>UISupportedInterfaceOrientations</key>
     <array>
       <string>UIInterfaceOrientationPortrait</string>
@@ -45,20 +58,11 @@
       <string>UIInterfaceOrientationPortraitUpsideDown</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
-    <key>UIRequiresFullScreen</key>
-    <true/>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-      <key>NSAllowsArbitraryLoads</key>
-      <true/>
-    </dict>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string/>
     <key>NSCameraUsageDescription</key>
-    <string>The camera is used to scan QR codes.</string>
-    <key>UIBackgroundModes</key>
-    <array>
-      <string>remote-notification</string>
-    </array>
+    <string>This app needs camera access</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app needs microphone access</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app needs photo library access</string>
   </dict>
 </plist>

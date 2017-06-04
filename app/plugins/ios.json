@@ -67,6 +67,12 @@
         },
         "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "org.theloyaltyclub"
+        },
+        "cordova-plugin-ios-camera-permissions": {
+            "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
+            "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs photo library access",
+            "PACKAGE_NAME": "org.theloyaltyclub"
         }
     },
     "dependent_plugins": {

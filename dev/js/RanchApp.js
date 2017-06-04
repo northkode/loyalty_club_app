@@ -25,6 +25,7 @@ import ProfileEdit from './views/profile_edit/index';
 import Events from './views/events/index';
 import BusinessList from './views/businesslist/index';
 import Program from './views/loyalty_program/index';
+import CreateAccount from './views/create_account/index';
 
 class RanchApp extends MobileApp {
     constructor(settings) {
@@ -44,6 +45,7 @@ class RanchApp extends MobileApp {
         StateManager.registerState('edit', ProfileEdit);
         StateManager.registerState('businesslist', BusinessList);
         StateManager.registerState('program', Program);
+        StateManager.registerState('createaccount', CreateAccount);
 
 		var analytics = navigator.analytics;
 		if(analytics) {
@@ -128,7 +130,6 @@ class RanchApp extends MobileApp {
 		var promise = this.api.getLoyaltySettings();
 		promise.done(data => {
 			this.loyaltySettings = data;
-            this.pn.init(this.settings,this.loyaltySettings);
 			// check to see if this phone has had a user logged in before
 	        if (this.localSettings.getItem('user') == undefined) { // brand new phone, so show them the welcome screen
 	            this.changeApplicationState('#welcome');
@@ -191,16 +192,17 @@ class RanchApp extends MobileApp {
     onUserProfileChange(event) {
         super.onUserProfileChange(event);
         var location;
+
         if (this.um.userStatus == 'connected') {
 
             location = '#home';
 
 			mobileApp.um.currentUser.app_data.platform = cordova.platformId;
+			this.localSettings.setItem('user',true);
 
+			// start push notification manager now that we are logged in
+			this.pn.init(this.settings,this.loyaltySettings);
             this.saveAppVersionNumber();
-            this.updateUserProfile();
-            this.updateNotificationCounts();
-            this.pn.updatePushIds();
 
             // if the user clicked a notification before we were logged in then call handleOpenActions
             if (this.hasNotificationActions()) {
@@ -208,20 +210,15 @@ class RanchApp extends MobileApp {
                     this.handleOpenActions();
                 }, 1500);
             }
-            this.changeApplicationState(location, { clearCache: true });
+        } else {
+			location = '#welcome'
+		}
 
-            setTimeout(function() {
-                navigator.splashscreen.hide();
-            }.bind(this), 1500);
+		this.changeApplicationState(location, {clearCache: true});
 
-
-        } else { // not logged in
-            this.changeApplicationState('#login', {});
-
-            setTimeout(function() {
-                navigator.splashscreen.hide();
-            }.bind(this), 1500);
-        }
+		setTimeout(function() {
+			navigator.splashscreen.hide();
+		}.bind(this), 1500);
 
     };
 
