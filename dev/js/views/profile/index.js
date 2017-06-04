@@ -46,7 +46,9 @@ class Profile extends DefaultAppView {
 		}, "Logout?", ['No', 'Logout'])
 	}
 
-	transitionFinished() {}
+	transitionFinished() {
+
+	}
 	cleanup() {
 		mobileApp.um.removeEventListener('userProfileUpdated', this.profileUpdateProxy);
 		super.cleanup();

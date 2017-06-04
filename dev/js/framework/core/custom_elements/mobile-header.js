@@ -15,7 +15,14 @@ export default class MobileHeader {
             this.data.title = this.getAttribute( "title" );
             this.data['menu-text'] = this.getAttribute("menu");
 			this.data.showTip = this.getAttribute("show-tip");
+			if(this.getAttribute('scroll-detect') != undefined){
+				this.parentElement.querySelector('.content')[0].addEventListener('scroll',this.onParentScroll);
+			}
         };
+
+		proto.onParentScroll = function (e) {
+			console.log('test');
+		};
         proto.attributeChangedCallback = function( attrName, oldVal, newVal ) {
             this.readAttributes();
             this.updateTemplate();
