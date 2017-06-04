@@ -107,6 +107,7 @@ class API {
         });
     }
 
+
 	/**
 	 * [getLoyaltyPrograms description]
 	 * @method getLoyaltyPrograms
@@ -162,9 +163,9 @@ class API {
      *
      * @returns {*}
      */
-    getRewards(customer_id) {
+    getCategories() {
         return $.ajax({
-            url: this.customerApiPath + `${customer_id}/rewards/all`,
+            url: this.apiPath + "business/categories",
             type: 'GET',
             dataType: 'json'
         });
@@ -175,9 +176,9 @@ class API {
      *
      * @returns {*}
      */
-    getCategories() {
+    getRewards(customer_id) {
         return $.ajax({
-            url: this.apiPath + "business/categories",
+            url: this.customerApiPath + `${customer_id}/rewards/all`,
             type: 'GET',
             dataType: 'json'
         });

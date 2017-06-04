@@ -107,6 +107,7 @@ class API {
         });
     }
 
+<<<<<<< HEAD
 	/**
 	 * [getLoyaltyPrograms description]
 	 * @method getLoyaltyPrograms
@@ -123,15 +124,23 @@ class API {
 			type: 'GET'
 		});
 	}
+=======
+>>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 
 	/**
      *
      * @param formData
      * @returns {*}
      */
+<<<<<<< HEAD
     joinProgram(customer_id,user_id) {
         return $.ajax({
             url: this.apiPath + `user/${user_id}/enroll/${customer_id}`,
+=======
+    redeemReward(customer_id,id) {
+        return $.ajax({
+            url: this.customerApiPath + `${customer_id}/rewards/redeem/${id}`,
+>>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 			beforeSend: function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
             }.bind(this),
@@ -141,6 +150,7 @@ class API {
     }
 
 
+<<<<<<< HEAD
 	/**
      *
      * @param formData
@@ -154,10 +164,22 @@ class API {
             }.bind(this),
             dataType: 'json',
             type: 'POST'
+=======
+    /**
+     *
+     * @returns {*}
+     */
+    getRewards(customer_id) {
+        return $.ajax({
+            url: this.customerApiPath + `${customer_id}/rewards/all`,
+            type: 'GET',
+            dataType: 'json'
+>>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
         });
     }
 
 
+<<<<<<< HEAD
     /**
      *
      * @returns {*}
@@ -178,6 +200,15 @@ class API {
     getCategories() {
         return $.ajax({
             url: this.apiPath + "business/categories",
+=======
+	/**
+     *
+     * @returns {*}
+     */
+    getCategories() {
+        return $.ajax({
+            url: this.apiPath + "business/categories",            
+>>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
             type: 'GET',
             dataType: 'json'
         });

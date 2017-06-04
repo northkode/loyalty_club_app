@@ -20,6 +20,7 @@ class Program extends DefaultAppView {
 		var content = $(e.currentTarget).addClass('active').data('ui-href');
 		this.getViewInstance().find('.tab__content').removeClass('active');
 		this.getViewInstance().find('.tab__content[data-id=' + content + ']').addClass('active');
+		Utils.forceRedraw(this.getViewInstance().find('.content')[0]);
 	}
 
 	onJoinProgram(e){
@@ -65,11 +66,12 @@ class Program extends DefaultAppView {
 			}));
             setTimeout(() => {
 				this.getViewInstance().find('.rewards-swiper').addClass('active');
+				Utils.forceRedraw(this.getViewInstance().find('.content')[0]);
             },10);
         });
 	}
 
-    transitionFinished() { }
+    transitionFinished() {}
 
 }
 

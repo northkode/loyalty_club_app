@@ -1,5 +1,5 @@
 <mobile-view class="program-page">
-	<mobile-header icon="<%= ((rc.enrolled == true) ? './img/qr_icon.png' : '') %>"></mobile-header>
+	<mobile-header icon="<%= ((rc.enrolled == true) ? './img/qr_icon.png' : '') %>" scroll-detect></mobile-header>
 	<div class="content <%= ((rc.enrolled == true) ? 'enrolled' : '') %>">
 
 		<div class="header" style="<%= ((rc.has_logo) ? '' : 'padding-top:90px;' ) %> background-image:url(<%= mobileApp.settings.imageURL + rc.image_path %>)">

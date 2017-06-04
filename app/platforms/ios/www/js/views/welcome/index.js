@@ -6,6 +6,7 @@ class Login extends DefaultAppView {
     constructor(route, viewData) {
         super(route, viewData);
         this.template = _.template(require('./template.tpl'));
+        this.clearAfterClose = true;
     }
 
     attachListeners() {
@@ -16,7 +17,7 @@ class Login extends DefaultAppView {
 
 	login(){
 		mobileApp.changeApplicationState('#login');
-	}
+    }
 
 	getStarted(e){
 		mobileApp.changeApplicationState('#categories');

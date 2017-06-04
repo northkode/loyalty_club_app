@@ -14,4 +14,4 @@ for(var i=0; i < rewards.length; i++){
 		</div>
 	</div>
 
-	<% } %>
+<% } %>

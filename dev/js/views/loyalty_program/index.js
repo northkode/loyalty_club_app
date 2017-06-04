@@ -65,7 +65,7 @@ class Program extends DefaultAppView {
 				points:this.viewData.points
 			}));
             setTimeout(() => {
-				this.getViewInstance().find('.rewards-swiper').addClass('active');				
+				this.getViewInstance().find('.rewards-swiper').addClass('active');
 				Utils.forceRedraw(this.getViewInstance().find('.content')[0]);
             },10);
         });

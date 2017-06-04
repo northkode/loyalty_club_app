@@ -22,6 +22,7 @@ class BusinessList extends DefaultAppView {
 			}
 		}
 
+<<<<<<< HEAD
 		// if i am logged in make sure the programs i'm browsing show my enrolled status
 		if(mobileApp.currentUser){
 		 	var customers = mobileApp.currentUser.programs.filter(program => { return program.id == customer.id });
@@ -33,6 +34,14 @@ class BusinessList extends DefaultAppView {
 	}
 
 	transitionFinished() { }
+=======
+		mobileApp.changeApplicationState('#program',{viewData:customer});
+	}
+
+	transitionFinished() {
+
+	}
+>>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 
 }
 

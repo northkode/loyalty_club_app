@@ -15,8 +15,8 @@ export default class MobileHeader {
             this.data.title = this.getAttribute( "title" );
             this.data['menu-text'] = this.getAttribute("menu");
 			this.data.showTip = this.getAttribute("show-tip");
-			if(this.getAttribute('scroll-detect') != undefined){
-				this.parentElement.querySelector('.content')[0].addEventListener('scroll',this.onParentScroll);
+			if(this.getAttribute('scroll-detect') != undefined){				
+				this.parentElement.querySelector('.content').addEventListener('scroll',this.onParentScroll);
 			}
         };
 

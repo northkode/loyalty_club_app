@@ -19,7 +19,6 @@
 		font-weight: 700;
 		font-style: italic;
 		font-size: 17px;
-		background-image: -webkit-linear-gradient(bottom, #fca00d, #ffc325);
 		background: #fca00d;
 		margin: 0;
 	}
@@ -280,7 +279,7 @@
 				}
 
 				&:not(:last-child) {
-					.title {						
+					.title {
 						border-bottom: 1px solid #dfdfdf;
 					}
 				}
