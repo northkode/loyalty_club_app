@@ -48,4 +48,5 @@
     <preference name="xwalkMode" value="embedded" />
     <preference name="xwalkMultipleApk" value="true" />
     <plugin name="cordova-plugin-device" spec="~1.1.5" />
+    <plugin name="cordova-launch-review" spec="~2.0.0" />
 </widget>

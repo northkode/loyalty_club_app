@@ -1,11 +1,7 @@
 .welcome-page {
-<<<<<<< HEAD
-	background: linear-gradient(-50deg, #1c1d20, #303439);	
+	background: linear-gradient(-50deg, #1c1d20, #303439);
 	background-size:cover;
 	background-position: center center;
-=======
-	background: linear-gradient(-50deg, #000, #2a2e31);
->>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 
 	mobile-header {
 		display: none;
@@ -18,26 +14,17 @@
 
 	.getStarted {
 		width: 80%;
-<<<<<<< HEAD
 		margin: 0 auto;
-=======
-		margin: 0 auto 30px;
->>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 		padding: 10px;
 		background: linear-gradient(-0deg, #8a8a8a, #fff);
 		box-shadow: 0 4px 10px rgba(0, 0, 0, .7);
 		font-family: Lato;
-<<<<<<< HEAD
 		font-style: italic;
-=======
-		font-style:italic;
->>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 		font-size: 30px;
 		color: #000 !important;
 		font-weight: 700;
 	}
 
-<<<<<<< HEAD
 	.or {
 		color: #eee;
 		font-weight: 600;
@@ -60,8 +47,6 @@
 		}
 	}
 
-=======
->>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 	.content {
 		flex-direction: column;
 		padding: 0;
@@ -98,14 +83,11 @@
 			font-size: 60px;
 			line-height: 50px;
 		}
-<<<<<<< HEAD
 
 		p {
 			font-size: 18px;
 			color: white;
 			margin-bottom: 0;
 		}
-=======
->>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 	}
 }

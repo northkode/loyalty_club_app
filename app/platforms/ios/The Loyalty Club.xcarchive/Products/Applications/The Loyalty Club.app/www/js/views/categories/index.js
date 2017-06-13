@@ -11,13 +11,10 @@ class Login extends DefaultAppView {
     attachListeners() {
         super.attachListeners();
         this.registerListener('click', this.categorySelected, '.category');
-<<<<<<< HEAD
 
 		// onboarding controls
         this.registerListener('click', this.startOnboarding, '.onboarding .welcome > button.start');
         this.registerListener('click', this.finishOnboarding, '.onboarding .finish');
-=======
->>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
     }
 
 	categorySelected(e){
@@ -37,7 +34,6 @@ class Login extends DefaultAppView {
 		}
 	}
 
-<<<<<<< HEAD
 	startOnboarding() {
 	    this.getViewInstance().find('.onboarding').addClass('start');
 	}
@@ -63,14 +59,6 @@ class Login extends DefaultAppView {
         }else if(mobileApp.currentUser && mobileApp.currentUser.app_data.push_token == undefined){
 			mobileApp.pn.registerPush();
 		}
-=======
-    transitionFinished() {
-		var promise = mobileApp.api.getCategories();
-		promise.done(data=>{
-			console.log(data);
-			this.categories = data;
-		})
->>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
     }
 
 }

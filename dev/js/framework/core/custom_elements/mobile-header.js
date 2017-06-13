@@ -15,14 +15,27 @@ export default class MobileHeader {
             this.data.title = this.getAttribute( "title" );
             this.data['menu-text'] = this.getAttribute("menu");
 			this.data.showTip = this.getAttribute("show-tip");
-			if(this.getAttribute('scroll-detect') != undefined){				
-				this.parentElement.querySelector('.content').addEventListener('scroll',this.onParentScroll);
+			if(this.getAttribute('scroll-detect') != undefined){
+				this.continuous = true;
+				requestAnimationFrame(this.onParentScroll.bind(this));
 			}
         };
 
-		proto.onParentScroll = function (e) {
-			console.log('test');
+		proto.onParentScroll = function(e) {
+			if(this.parentElement){
+				var color = this.querySelector('mobile-header .colorbg');
+				var text = this.querySelector('mobile-header .title');
+				var content = this.parentElement.querySelector('.content');
+				var scrollTop = content.scrollTop;
+				var scrollamount = (scrollTop / (content.scrollHeight-window.innerHeight)) * 100 // get amount scrolled (in %)
+				color.style.opacity = (scrollamount * 2) / 100;
+				text.style.opacity = (scrollamount * 2) / 100;
+				if(this.continuous == true){
+					requestAnimationFrame(this.onParentScroll.bind(this));
+				}
+			}
 		};
+
         proto.attributeChangedCallback = function( attrName, oldVal, newVal ) {
             this.readAttributes();
             this.updateTemplate();
@@ -33,6 +46,7 @@ export default class MobileHeader {
 		proto.detachedCallback = function(){
 			this.data = null;
 			this.template = null;
+			this.continuous = false;
 		}
         document.registerElement('mobile-header', {prototype: proto});
     }

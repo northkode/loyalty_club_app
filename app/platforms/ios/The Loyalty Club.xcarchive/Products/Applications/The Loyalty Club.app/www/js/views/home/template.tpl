@@ -1,14 +1,7 @@
 <mobile-view class="page_welcome">
 	<mobile-header title="" no-back class='no-shadow'></mobile-header>
 	<div class="content">
-<<<<<<< HEAD
 		<div class="bg" style="background-image: url('img/bg.jpg');" style="opacity:.7"></div>
-=======
-
-		<div class="header" style="background-image: url('img/main_image.jpg');">
-			<img src="./img/dashboard_logo.png">
-		</div>
->>>>>>> b16cc2414337989a312ee81e4a8fe0c494f1e77f
 
 		<div class="header">
 			<img src="./img/dashboard_logo.png">

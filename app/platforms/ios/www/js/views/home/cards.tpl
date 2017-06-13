@@ -10,12 +10,12 @@ for(var i=0; i < cards.length; i++){
 					<%= cards[i].name %>
 				</div>
 				<div class="points">
-					<span><%= cards[i].points %></span> pts
+					<span><%= cards[i].customer.points %></span> pts
 				</div>
 			</div>
 			<div class="back">
 				<i class="fa fa-times systemButton"></i>
-				
+
 			</div>
 		</div>
 	</div>

@@ -6,20 +6,36 @@
 		position: absolute;
 
 		.icon {
-			top:30px;
+			top: 30px;
 		}
 
 		.title {
 			color: white;
 		}
+
+		.colorbg {
+			background: #242b2e;
+			opacity: 0;
+		}
 	}
 
 	.content {
 		padding-top: 70px;
-		background: transparent;
 		flex-direction: column;
-		overflow-y: auto;
-		-webkit-overflow-scrolling:touch;
+		background: #22282b;
+
+		.scroller {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			transform: translateZ(0);
+			user-select: none;
+			text-size-adjust: none;
+			display: flex;
+			flex-direction: column;
+			background: #22282b;
+			padding-bottom: 70px;
+		}
 
 		.bg-image {
 			position: absolute;
@@ -41,7 +57,7 @@
 	}
 
 	.options {
-		background: rgb(225, 225, 225);
+		background: #22282b;
 		display: flex;
 		flex: 1;
 		flex-direction: column;
@@ -49,7 +65,7 @@
 		.tabbar {
 			width: 100%;
 			border-radius: 0;
-			border: 0px solid #848c8e;
+			border: 0 solid #848c8e;
 			position: relative;
 			z-index: 10;
 			display: flex;
@@ -58,48 +74,86 @@
 			flex-shrink: 0;
 			min-height: 40px;
 			background: white;
-			margin:0;
-			margin-bottom:20px;
-			background:#848c8e;
+			margin: 0 0 20px;
+			background: #191d1f;
 
 			.tabbar__tab {
 				color: #848c8e;
 				font-size: 15px;
 				border-radius: 0!important;
-				background:white;
-				&.active{
+				background: transparent;
+
+				&.active {
 					color: white;
-					background:#848c8e;
+					background: #5e6f78;
 				}
 			}
 		}
 
 		.tab__content {
+			position: relative;
+
+			> .spinner {
+				top: 50%;
+				left: 20px;
+			}
+
+			> h2 {
+				color: white;
+				padding-left: 10px;
+			}
+
+			ul + h2 {
+				padding-top: 5px;
+			}
+
 			ul {
 				margin: 0;
 				padding: 0;
-				background: white;
+				background: #2b3337;
 				width: 100%;
-				border-bottom: 1px solid #dfdfdf;
-				border-top: 1px solid #dfdfdf;
+				border-bottom: 1px solid #465359;
+				border-top: 1px solid #465359;
 
 				li {
 					list-style: none;
-					padding: 10px 0;
+					padding: 15px 0;
 					margin-left: 10px;
 					font-size: 14px;
 					display: flex;
 					align-items: center;
-					color: #333;
+					color: white;
 					font-weight: 400;
-					border-bottom: 1px solid #dfdfdf;
+					background: #2b3337;
+
+					&:not(:last-child){						
+						border-bottom: 1px solid #465359;
+					}
+
+					.points {
+						margin-right: 10px;
+						width: 50px;
+						text-align: center;
+						.pts {
+							font-size: 17px;
+							font-weight:600;
+							i {
+								font-size:12px;
+								font-weight:100;
+							}
+						}
+						> div {
+							font-size:13px;
+						}
+					}
 
 					&.spacer {
 						border: none;
-						background: rgb(225, 225, 225);
-						border-bottom: 1px solid #dfdfdf;
-						border-top: 1px solid #dfdfdf;
-						margin-left:0;
+						background: #22282b;
+						border-bottom: 1px solid #465359;
+						border-top: 1px solid #465359;
+						margin-left: 0;
+
 						&:after {
 							content: "";
 						}
@@ -113,13 +167,24 @@
 						margin-left: auto;
 						margin-right: 10px;
 					}
+
+					&.no-border {
+						border-bottom: 0;
+					}
+
+					&.no-arrow {
+						&:after{
+							content:"";
+						}
+					}
 				}
 			}
 		}
 	}
 
 	.header {
-		margin: 0 auto;
+		margin: -70px auto 0;
+		padding-top: 70px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -128,6 +193,7 @@
 		z-index: 100;
 		flex-shrink: 0;
 		padding-bottom: 10px;
+		background: $background;
 
 		profile-image {
 			margin-bottom: 10px;

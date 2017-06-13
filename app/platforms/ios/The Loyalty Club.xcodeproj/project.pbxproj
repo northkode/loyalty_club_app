@@ -63,6 +63,8 @@
 		F5512DFAD3C447E5B75DBF0A /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC78B246FE943FAAD358829 /* CDVReachability.m */; };
 		FACF9240826A4B438A2B8D23 /* NSObject+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA90296F60740489A3AF9D9 /* NSObject+Extras.m */; };
 		FB4EFAEC9C5949A79653ABAC /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82816EFE76994F7792DFC876 /* CDVLocation.m */; };
+		5C0483FB4FAB41BB882FE514 /* LaunchReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF259312F3144B9BFAED5D6 /* LaunchReview.m */; };
+		BA19E8BF68694C97BEF178C8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C07B6A2B8044C50A550F64A /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +192,9 @@
 		F61EBBDA8D0B4C809A4E9E8C /* NativePageTransitions.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = NativePageTransitions.m; path = com.telerik.plugins.nativepagetransitions/NativePageTransitions.m; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "The Loyalty Club/config.xml"; sourceTree = "<group>"; };
 		FBF2F5B639B8407692074780 /* CDVConnection.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVConnection.h; path = "cordova-plugin-network-information/CDVConnection.h"; sourceTree = "<group>"; };
+		0BF259312F3144B9BFAED5D6 /* LaunchReview.m */ = {isa = PBXFileReference; name = "LaunchReview.m"; path = "cordova-launch-review/LaunchReview.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		441AC09FC0954C6985E5AE84 /* LaunchReview.h */ = {isa = PBXFileReference; name = "LaunchReview.h"; path = "cordova-launch-review/LaunchReview.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		3C07B6A2B8044C50A550F64A /* StoreKit.framework */ = {isa = PBXFileReference; name = "StoreKit.framework"; path = "System/Library/Frameworks/StoreKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +210,7 @@
 				F4DE8AF463AF4BAF913B25A7 /* SystemConfiguration.framework in Frameworks */,
 				DC5B4CB612154DE48888486B /* CoreTelephony.framework in Frameworks */,
 				85469C35FED4408F88454F4D /* QuartzCore.framework in Frameworks */,
+				BA19E8BF68694C97BEF178C8 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +290,7 @@
 				3E713722D7EA42BFA23D4ED0 /* SystemConfiguration.framework */,
 				E6B94D789FA940F38EDD2E13 /* CoreTelephony.framework */,
 				608962B6DB0C4A7D939FCF8B /* QuartzCore.framework */,
+				3C07B6A2B8044C50A550F64A /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -387,6 +394,8 @@
 				C01AC5573D5A4F8EB86C8EE6 /* OneSignalTracker.h */,
 				C0583C508B2842C694565C66 /* OneSignalWebView.h */,
 				8762A90CA76E48729C95E2D7 /* OneSignal-Prefix.pch */,
+				0BF259312F3144B9BFAED5D6 /* LaunchReview.m */,
+				441AC09FC0954C6985E5AE84 /* LaunchReview.h */,
 			);
 			name = Plugins;
 			path = "The Loyalty Club/Plugins";
@@ -555,6 +564,7 @@
 				A2D70FA4609B450B9ABD6581 /* OneSignalPush.m in Sources */,
 				40EBE03A4B014B34877C7F00 /* OneSignalSelectorHelpers.m in Sources */,
 				56492389CBA14E75B8C9DEF8 /* UNUserNotificationCenter+OneSignal.m in Sources */,
+				5C0483FB4FAB41BB882FE514 /* LaunchReview.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

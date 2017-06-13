@@ -347,6 +347,14 @@ module.exports = [
         "clobbers": [
             "OneSignal"
         ]
+    },
+    {
+        "id": "cordova-launch-review.LaunchReview",
+        "file": "plugins/cordova-launch-review/www/launchreview.js",
+        "pluginId": "cordova-launch-review",
+        "clobbers": [
+            "LaunchReview"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -374,7 +382,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.0",
     "cordova-plugin-x-toast": "2.5.2",
     "onesignal-cordova-plugin": "2.0.8",
-    "cordova-plugin-ios-camera-permissions": "1.1.1"
+    "cordova-plugin-ios-camera-permissions": "1.1.1",
+    "cordova-launch-review": "2.0.0"
 };
 // BOTTOM OF METADATA
 });

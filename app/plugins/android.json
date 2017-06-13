@@ -74,6 +74,9 @@
         },
         "cordova-plugin-ios-camera-permissions": {
             "PACKAGE_NAME": "org.theloyaltyclub"
+        },
+        "cordova-launch-review": {
+            "PACKAGE_NAME": "org.theloyaltyclub"
         }
     },
     "dependent_plugins": {

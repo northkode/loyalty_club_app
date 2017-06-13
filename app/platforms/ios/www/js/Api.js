@@ -125,6 +125,18 @@ class API {
 		});
 	}
 
+
+	getUserActivity(user_id) {
+		return $.ajax({
+			url: this.apiPath + `user/${user_id}/activity`,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+			}.bind(this),
+			dataType: 'json',
+			type: 'GET'
+		});
+	}
+
 	/**
      *
      * @param formData

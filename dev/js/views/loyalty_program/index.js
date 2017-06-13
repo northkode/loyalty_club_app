@@ -1,6 +1,8 @@
 require('./styles.scss');
 import DefaultAppView from "../../framework/core/DefaultAppView";
 
+import IScroll from "../../vendor/iscroll";
+
 class Program extends DefaultAppView {
 
     constructor(route, viewData) {
@@ -13,14 +15,20 @@ class Program extends DefaultAppView {
         super.attachListeners();
         this.registerListener('click', this.onJoinProgram, '.join-program');
 		this.registerListener('tap', this.tabChanged, '.tabbar .tabbar__tab');
+		this.registerListener('tap', this.viewQRCode, 'mobile-header .icon');
     }
+
+	viewQRCode(){
+		mobileApp.changeApplicationState("#points")
+	}
 
 	tabChanged(e) {
 		this.getViewInstance().find('.tabbar .tabbar__tab').removeClass('active');
 		var content = $(e.currentTarget).addClass('active').data('ui-href');
 		this.getViewInstance().find('.tab__content').removeClass('active');
 		this.getViewInstance().find('.tab__content[data-id=' + content + ']').addClass('active');
-		Utils.forceRedraw(this.getViewInstance().find('.content')[0]);
+		//Utils.forceRedraw(this.getViewInstance().find('.content')[0]);
+		this.myScroll.refresh();
 	}
 
 	onJoinProgram(e){
@@ -71,7 +79,24 @@ class Program extends DefaultAppView {
         });
 	}
 
-    transitionFinished() {}
+    transitionFinished() {
+		var content = this.getViewInstance().find('.content')[0];
+		this.myScroll = new IScroll(content, { probeType:3 });
+		var offset = this.getViewInstance().find('.content .scroller')[0].clientHeight -  window.innerHeight;
+		var colorBG = this.getViewInstance().find('mobile-header .colorbg')[0];
+		var text = this.getViewInstance().find('mobile-header .title')[0];
+		this.myScroll.on('scroll',function(e){
+			var scrollTop = this.y;
+			var scrollamount = (scrollTop / offset) * -100 // get amount scrolled (in %)
+			colorBG.style.opacity = (scrollamount * 2) / 100;
+			text.style.opacity = (scrollamount * 1.2) / 100;
+		});
+	}
+
+	cleanup(){
+		this.myScroll.destroy();
+		super.cleanup();
+	}
 
 }
 

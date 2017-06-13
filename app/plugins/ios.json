@@ -73,6 +73,9 @@
             "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
             "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs photo library access",
             "PACKAGE_NAME": "org.theloyaltyclub"
+        },
+        "cordova-launch-review": {
+            "PACKAGE_NAME": "org.theloyaltyclub"
         }
     },
     "dependent_plugins": {
