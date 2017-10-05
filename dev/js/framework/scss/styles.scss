@@ -24,22 +24,22 @@ html {
 
 .No-Internet {
 	mobile-header {
-		background: #f7bd21!important;
+		background: transparent!important;
 		.title {
-			color: #333!important;
+			color: white!important;
 		}
 	}
 	.content {
-		background: #f7bd21;
-		color: #333;
+		background: transparent;
+		color: white;
 		font-size: 20px;
 		text-align: center;
+		padding:20px;
 		p {
 			position: relative;
 			top: 50%;
 			transform: translateY(-50%);
 			margin: 0;
-			font-family: "prelo_semiboldsemibold";
 			width: 80%;
 			margin: 0 auto;
 		}

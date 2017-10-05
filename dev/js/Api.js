@@ -153,15 +153,26 @@ class API {
         });
     }
 
+    leaveProgram(customer_id,user_id) {
+        return $.ajax({
+            url: this.apiPath + `user/${user_id}/leave/${customer_id}`,
+			beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+            }.bind(this),
+            dataType: 'json',
+            type: 'POST'
+        });
+    }
+
 
 	/**
      *
      * @param formData
      * @returns {*}
      */
-    redeemReward(customer_id,id) {
+    redeemReward(customer_id,user_id,id) {
         return $.ajax({
-            url: this.customerApiPath + `${customer_id}/rewards/redeem/${id}`,
+            url: this.apiPath + `user/${user_id}/customer/${customer_id}/reward/redeem/${id}`,
 			beforeSend: function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
             }.bind(this),

@@ -126,7 +126,7 @@
 					font-weight: 400;
 					background: #2b3337;
 
-					&:not(:last-child){						
+					&:not(:last-child){
 						border-bottom: 1px solid #465359;
 					}
 
@@ -183,7 +183,7 @@
 	}
 
 	.header {
-		margin: -70px auto 0;
+		margin: -70px 0 0;
 		padding-top: 70px;
 		display: flex;
 		flex-direction: column;

@@ -34,3 +34,8 @@ function ready(){
 function fail() { }
 
 let apploader = new Loader(config,ready,fail);
+
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+  alert(msg);
+  return false;
+}

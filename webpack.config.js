@@ -95,7 +95,7 @@ module.exports = function makeWebpackConfig() {
             loader: 'babel',
             exclude: /node_modules/,
             query: {
-                presets: ['es2015']
+                presets: ["es2015", "stage-1", "stage-2"]
             }
         }, {
             // CSS LOADER

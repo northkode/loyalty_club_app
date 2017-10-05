@@ -21,7 +21,7 @@
 		</div>
 	</div>
 
-	<div class="onboarding">
+<!--	<div class="onboarding">
 		<div class="welcome">
 			<h2>Welcome to</h2>
 			<h1>The Ranch Golf and Country Club</h1>
@@ -53,9 +53,8 @@
 					</div>
 
 				</div>
-				<!-- Add Pagination -->
 				<div class="swiper-pagination"></div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 </mobile-view>

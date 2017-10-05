@@ -1,4 +1,4 @@
-.program-page {
+.reward-page {
 	background: #0c0c0c;
 
 	mobile-header {
@@ -28,8 +28,8 @@
 		color: #fff !important;
 		font-weight: 700;
 		font-style: italic;
-		font-size: 20px;
-		background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+		font-size: 17px;
+		background: #fca00d;
 		margin: 0;
 	}
 
@@ -39,20 +39,41 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: calc(100% - 40px);
+		height: 100%;
 		width: 100%;
 		background: #22282b;
 
+		.redeem-btn {
+			margin-top: auto;
+			background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 100%);
+			padding: 20px;
+			text-align: center;
+			color: white;
+			font-size: 20px;
+			font-weight: bold;
+			position: relative;
+			z-index: 100000000;
+			transition: all 0.3s ease-out;
+
+			&.active {
+				pointer-events: none;
+			}
+
+			&.complete {
+				background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+			}
+		}
+
 		.scroller {
 			position: absolute;
-			z-index: 1;
+			z-index: 0;
 			width: 100%;
 			transform: translateZ(0);
 			user-select: none;
 			text-size-adjust: none;
 			display: flex;
 			flex-direction: column;
-			ackground: #22282b;
+			background: #22282b;
 		}
 
 		&.enrolled {
@@ -61,16 +82,19 @@
 		}
 
 		.header {
-			min-height: 45%;
+			height: 100vh;
 			position: relative;
+			z-index: 0;
 			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			position: relative;
 			padding: 60px 40px 40px;
 			margin-bottom: 0;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			flex: none;
-			height: auto;
 			overflow: hidden;
 			flex-direction: column;
 
@@ -104,28 +128,29 @@
 
 				h3 {
 					font-style: italic;
-					font-size: 23px;
+					font-size: 30px;
 					text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-					padding: 0 30px;
+					padding: 0;
 					@include small-device() {
 						padding: 0;
 					};
 				}
 
-				.address {
+				p.description {
+					font-size: 18px;
+					margin-top: 0;
+					text-align: center;
 					font-weight: 400;
-					margin-top: -5px;
 				}
 
-				.phone {
-					margin-top: -5px;
-					display: inline;
-					padding: 5px 10px;
-					border-radius: 50px;
-					font-weight: 500;
-					font-size: 13px;
-					background: rgba(0, 0, 0, .4);
-					color: white !important;
+				.cost {
+					font-size: 50px;
+					font-weight: bold;
+
+					span {
+						font-size: 20px;
+						font-style: italic;
+					}
 				}
 			}
 		}
@@ -158,6 +183,8 @@
 
 		.tab__content {
 			background: #22282b;
+			color: white;
+			padding: 20px;
 
 			&.active {
 				display: flex;

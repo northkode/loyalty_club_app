@@ -1,6 +1,6 @@
 <mobile-view class="program-page">
-	<mobile-header title="<%=rc.name%>" icon="<%= ((rc.enrolled == true) ? './img/qr_icon.png' : '') %>"></mobile-header>
-	<div class="content <%= ((rc.enrolled == true) ? 'enrolled' : '') %>">
+	<mobile-header title="<%=rc.name%>" icon="<%= ((rc.customer) ? './img/qr_icon.png' : '') %>"></mobile-header>
+	<div class="content <%= ((rc.customer) ? 'enrolled' : '') %>">
 		<div class="scroller">
 			<div class="header" style="<%= ((rc.has_logo) ? '' : 'padding-top:90px;' ) %> background-image:url(<%= mobileApp.settings.imageURL + rc.image_path %>)">
 				<% if(rc.has_logo) { %>
@@ -13,15 +13,13 @@
 							<p class="address">
 								<%= rc.categories.label %>
 							</p>
-							<% if(rc.enrolled == true) {%>
+							<% if(rc.customer) {%>
 								<p class="phone">
 									<%= rc.customer.points %> Points to Spend
 								</p>
 								<%}%>
 						</div>
-						<% if(rc.enrolled == true) { %>
-							<!--<img class="bar-code" src="<%=mobileApp.settings.prod_server%><%=mobileApp.currentUser.bar_code %>">-->
-							<% } %>
+
 			</div>
 
 			<div class="tabbar flex-none">
@@ -41,7 +39,7 @@
 					<div class="activity-header">
 						<h2>Your History</h2>
 						<span flex></span>
-						<% if(rc.enrolled) { %>
+						<% if(rc.customer) { %>
 							<p>Member Since
 								<%= rc.customer.joined %>
 							</p>
@@ -49,11 +47,11 @@
 					</div>
 					<ul class="activity-details">
 						<li class='option'>
-							<span> <%= (rc.enrolled) ? rc.customer.points : 0  %> </span>
+							<span> <%= (rc.customer) ? rc.customer.points : 0  %> </span>
 							<div class="label">Current Points</div>
 						</li>
 						<li class='option'>
-							<span> <%= (rc.enrolled) ? rc.customer.redemptions : 0  %> </span>
+							<span> <%= (rc.customer) ? rc.customer.redemptions : 0  %> </span>
 							<div class="label">Reward Redemptions</div>
 						</li>
 					</ul>
@@ -83,7 +81,7 @@
 								</li>
 								<%}%>
 				</ul>
-				<% if(rc.enrolled == true) { %>
+				<% if(rc.customer) { %>
 					<div class="leave-program">
 						<span>Leave Rewards Program</span>
 					</div>
@@ -91,7 +89,7 @@
 			</div>
 		</div>
 	</div>
-	<% if(rc.enrolled == undefined) { %>
+	<% if(!rc.customer) { %>
 		<button class="systemButton join-program">Join Program</button>
 		<%}%>
 </mobile-view>

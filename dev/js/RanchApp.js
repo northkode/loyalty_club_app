@@ -26,6 +26,7 @@ import Events from './views/events/index';
 import BusinessList from './views/businesslist/index';
 import Program from './views/loyalty_program/index';
 import CreateAccount from './views/create_account/index';
+import Reward from './views/reward/index';
 
 class RanchApp extends MobileApp {
     constructor(settings) {
@@ -46,6 +47,7 @@ class RanchApp extends MobileApp {
         StateManager.registerState('businesslist', BusinessList);
         StateManager.registerState('program', Program);
         StateManager.registerState('createaccount', CreateAccount);
+        StateManager.registerState('reward', Reward);
 
 		var analytics = navigator.analytics;
 		if(analytics) {

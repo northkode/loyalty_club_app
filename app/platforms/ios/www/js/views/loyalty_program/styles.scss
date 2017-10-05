@@ -28,8 +28,8 @@
 		color: #fff !important;
 		font-weight: 700;
 		font-style: italic;
-		font-size: 17px;
-		background: #fca00d;
+		font-size: 20px;
+		background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
 		margin: 0;
 	}
 
@@ -50,7 +50,7 @@
 			transform: translateZ(0);
 			user-select: none;
 			text-size-adjust: none;
-			display:flex;
+			display: flex;
 			flex-direction: column;
 			ackground: #22282b;
 		}

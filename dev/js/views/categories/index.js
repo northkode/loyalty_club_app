@@ -50,13 +50,15 @@ class Login extends DefaultAppView {
 			this.categories = data;
 		});
 
-		if (mobileApp.localSettings.getItem('onboarding') == undefined) {
+		/*if (mobileApp.localSettings.getItem('onboarding') == undefined) {
             this.getViewInstance().find('.onboarding').addClass('active');
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
                 paginationClickable: false
             });
-        }else if(mobileApp.currentUser && mobileApp.currentUser.app_data.push_token == undefined){
+        }*/
+
+        if(mobileApp.currentUser && mobileApp.currentUser.app_data.push_token == undefined){
 			mobileApp.pn.registerPush();
 		}
     }
