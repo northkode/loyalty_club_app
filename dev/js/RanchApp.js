@@ -9,24 +9,10 @@ import autosize from "./vendor/autosize.min";
 // api for server talking
 import { API } from "./Api";
 
-import UserAssistant from "./framework/controls/UserAssistant";
 
 //VIEWS
-import NoInternet from './framework/views/NoInternet';
-import Welcome from './views/welcome/index';
-import Categories from './views/categories/index';
-import Home from './views/home/index';
-import Points from './views/points/index';
-import Login from './views/login/index';
-import RedeemPoints from './views/redeempoints/index';
 import Admin from './views/admin/index';
-import Profile from './views/profile/index';
-import ProfileEdit from './views/profile_edit/index';
-import Events from './views/events/index';
-import BusinessList from './views/businesslist/index';
-import Program from './views/loyalty_program/index';
-import CreateAccount from './views/create_account/index';
-import Reward from './views/reward/index';
+import Login from './views/login/index';
 
 class RanchApp extends MobileApp {
     constructor(settings) {
@@ -34,20 +20,8 @@ class RanchApp extends MobileApp {
         window.autosize = autosize; // autosize helper for textarea field
         // register all the app states here
         // Main Menu Items -----
-        StateManager.registerState('nointernet', NoInternet);
-        StateManager.registerState('welcome', Welcome);
-        StateManager.registerState('categories', Categories);
-        StateManager.registerState('home', Home);
-        StateManager.registerState('points', Points);
-        StateManager.registerState('login', Login);
-        StateManager.registerState('redeemPoints', RedeemPoints);
         StateManager.registerState('admin', Admin);
-        StateManager.registerState('profile', Profile);
-        StateManager.registerState('edit', ProfileEdit);
-        StateManager.registerState('businesslist', BusinessList);
-        StateManager.registerState('program', Program);
-        StateManager.registerState('createaccount', CreateAccount);
-        StateManager.registerState('reward', Reward);
+        StateManager.registerState('login', Login);
 
 		var analytics = navigator.analytics;
 		if(analytics) {
@@ -61,12 +35,11 @@ class RanchApp extends MobileApp {
     init() {
         super.init();
 
-		this.api = new API(this.settings.prod_server); // server api helper
+		this.api = new API(this.settings.dev_server); // server api helper
 
 		console.log("app initializing...");
 
         this.context = null;
-        this._appOpenedActions = []; // used to handle push notification events when the app is not opened
 
         if (window.cordova) {
             window.plugins.nativepagetransitions.globalOptions.duration = 300;
@@ -103,13 +76,13 @@ class RanchApp extends MobileApp {
                 startDragAtBorder = false;
             }
         });
-        $(document).on('swiperight', function(e) {
+        /*$(document).on('swiperight', function(e) {
             if (startDragAtBorder) {
                 if (mobileApp.history.history.length && mobileApp.currentView.route.value != '#home') {
                     mobileApp.goBack();
                 }
             }
-        });
+        });*/
         //------------------
 
         var _this = this;
@@ -134,7 +107,7 @@ class RanchApp extends MobileApp {
 			this.loyaltySettings = data;
 			// check to see if this phone has had a user logged in before
 	        if (this.localSettings.getItem('user') == undefined) { // brand new phone, so show them the welcome screen
-	            this.changeApplicationState('#welcome');
+	            this.changeApplicationState('#login');
 				setTimeout(() => { navigator.splashscreen.hide(); }, 1500);
 	        } else {
 	            this.um.checkLoginStatus();
@@ -197,7 +170,7 @@ class RanchApp extends MobileApp {
 
         if (this.um.userStatus == 'connected') {
 
-            location = '#home';
+            location = '#admin';
 
 			mobileApp.um.currentUser.app_data.platform = cordova.platformId;
 			this.localSettings.setItem('user',true);
@@ -213,7 +186,7 @@ class RanchApp extends MobileApp {
                 }, 1500);
             }
         } else {
-			location = '#welcome'
+			location = '#login'
 		}
 
 		this.changeApplicationState(location, {clearCache: true});
@@ -278,7 +251,6 @@ class RanchApp extends MobileApp {
     }
 
     onNotificationOpened(e, notification) {
-        console.log(this.currentUser, this.appReady);
         if (this.currentUser == undefined || this.appReady == false) {
             var closure = (function(event, obj) {
                 return function() {
@@ -301,7 +273,6 @@ class RanchApp extends MobileApp {
     }
 
     handleOpenURL(url) {
-        console.log(url);
         if (!url || url == '') return;
         super.handleOpenURL(url);
         let urlHandle = url.split('://')[1];
@@ -341,7 +312,6 @@ class RanchApp extends MobileApp {
             target.addClass('is-active');
             $('body').addClass('menu-open');
         }
-
     };
 
     resize() {

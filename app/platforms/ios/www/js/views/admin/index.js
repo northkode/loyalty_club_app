@@ -45,10 +45,6 @@ class Admin extends DefaultAppView {
     handleViewState() {
         super.handleViewState();
         this.options = mobileApp.currentUser.departments[0].options;
-
-		if(mobileApp.currentUser.app_data.push_token == undefined){
-			mobileApp.pn.registerPush();
-		}
     }
 
     onRestartScan() {

@@ -1,14 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="1000016" id="org.theloyaltyclub" ios-CFBundleVersion="0.2.0" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="1000016" id="org.theloyaltyclub.scanner" ios-CFBundleVersion="0.2.0" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="NativePageTransitions">
         <param name="android-package" value="com.telerik.plugins.nativepagetransitions.NativePageTransitions" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="AppVersion">
-        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion" />
-    </feature>
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="LaunchReview">
+        <param name="android-package" value="uk.co.workingedge.phonegap.plugin.LaunchReview" />
+    </feature>
+    <feature name="AppVersion">
+        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion" />
     </feature>
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
@@ -57,9 +60,9 @@
     <feature name="Keyboard">
         <param name="android-package" onload="true" value="org.apache.cordova.labs.keyboard.Keyboard" />
     </feature>
-    <name>The Loyalty Club</name>
+    <name>Loyalty Club Scanner</name>
     <description>
-        Loyalty Club App, your rewards start here.
+        Loyalty Club Scanner For Business'
     </description>
     <author email="kyle@northkode.com" href="theloyaltyclub.org">
         Kyle Jeske
@@ -87,7 +90,4 @@
     <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
     <preference name="xwalkMode" value="embedded" />
     <preference name="xwalkMultipleApk" value="true" />
-    <feature name="LaunchReview">
-        <param name="android-package" value="uk.co.workingedge.phonegap.plugin.LaunchReview" />
-    </feature>
 </widget>

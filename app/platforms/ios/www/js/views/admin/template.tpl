@@ -5,10 +5,13 @@
 		<% } %>
 		<button class="cancelScan systemButton"> Cancel </button>
 		<button class="restartScan systemButton"> Restart Scan </button>
+		<% if(mobileApp.currentUser.customer.has_logo) { %>
 		<div class="logo">
-			<img src="img/main_logo.png">
-			<div>Logged in as: <%= mobileApp.currentUser.first_name%> <%= mobileApp.currentUser.last_name%></div>
+			<img src="https://loyaltyclub.loyaltyapp.org/uploads/<%= mobileApp.currentUser.customer.logo_path%>">
+			<div>Logged in as: <%= mobileApp.currentUser.full_name%></div>
 		</div>
+		<%}%>
+		<h2><%= mobileApp.currentUser.customer.name %></h2>
 		<div class="scan systemButton">
 			<img src="img/Scan_Code.png">
 		</div>

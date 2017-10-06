@@ -88,9 +88,9 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "cordova-plugin-crosswalk-webview/theloyaltyclub-xwalk.gradle"
-apply from: "cordova-plugin-qrscanner/theloyaltyclub-qrscanner.gradle"
-apply from: "onesignal-cordova-plugin/theloyaltyclub-build-extras-onesignal.gradle"
+apply from: "cordova-plugin-crosswalk-webview/scanner-xwalk.gradle"
+apply from: "cordova-plugin-qrscanner/scanner-qrscanner.gradle"
+apply from: "onesignal-cordova-plugin/scanner-build-extras-onesignal.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()

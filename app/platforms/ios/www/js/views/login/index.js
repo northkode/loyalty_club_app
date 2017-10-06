@@ -48,29 +48,40 @@ class Login extends DefaultAppView {
 		$(e.currentTarget).addClass('active');
 		var username = this.getViewInstance().find(".login-form input[name='email']").val();
 		var password = this.getViewInstance().find(".login-form input[name='password']").val();
+		var code = this.getViewInstance().find(".login-form input[name='location_code']").val();
 
-		this.login(e, username, password);
+		this.login(e, username, password,code);
 	}
 
-	login(e, username, password) {
-		var promise = mobileApp.api.login(username, password);
-		promise.done(data => {
-			mobileApp.api.token = data.token;
-			mobileApp.um.currentUser = data.user;
-			mobileApp.localSettings.setItem('user', true);
-			mobileApp.localSettings.setItem('token', data.token);
+	login(e, username, password,code) {
+		var promise = mobileApp.api.getCustomerId(code);
+		promise.done(data=>{
+			mobileApp.api.customerId = data.customer_id;
+			mobileApp.localSettings.setItem('customer_id', data.customer_id);
+			var promise = mobileApp.api.login(username, password);
+			promise.done(data => {
+				mobileApp.api.token = data.token;
+				mobileApp.um.currentUser = data.user;
+				mobileApp.localSettings.setItem('user', true);
+				mobileApp.localSettings.setItem('token', data.token);
+			});
+			promise.fail(data => {
+				$(e.currentTarget).removeClass('active');
+				mobileApp.alert("Could not log in. Please check your credentials", () => {}, "Login Error");
+				this.getViewInstance().find('.login-btn').removeClass('active');
+				this.getViewInstance().find('.signup-btn').removeClass('active');
+			});
 		});
 		promise.fail(data => {
 			$(e.currentTarget).removeClass('active');
-			mobileApp.alert("Could not log in. Please check your credentials", () => {}, "Login Error");
+			mobileApp.alert("Could not find location", () => {}, "Login Error");
 			this.getViewInstance().find('.login-btn').removeClass('active');
 			this.getViewInstance().find('.signup-btn').removeClass('active');
 		});
-	}
-
-	transitionFinished() {
 
 	}
+
+	transitionFinished() { }
 
 }
 

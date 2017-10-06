@@ -43,6 +43,7 @@ class MobileApp {
         this.viewProcessId = 0;
         this._history = []; // cache certain views depending on their position in the history chain
         this.isTransitionBack = false;
+        this._appOpenedActions = []; // used to handle push notification events when the app is not opened
 
         // user status for application logic
         this.userStatus = "unknown";

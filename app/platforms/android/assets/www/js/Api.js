@@ -1,7 +1,8 @@
 class API {
-    constructor(server,customer_id) {
+    constructor(server) {
         this.token = null;
-        this.apiPath = server + "api/"+customer_id+'/';
+        this.apiPath = server + "api/club/";
+        this.customerApiPath = server + "api/";
         this.saveDataTimer = 0;
     }
 
@@ -82,29 +83,12 @@ class API {
     createUserAccount(userData) {
 		console.log(userData);
         return $.ajax({
-            url: this.apiPath + "user/signup",
+            url: this.apiPath + "user/create",
             data: userData,
             dataType: 'json',
             type: 'POST'
         });
     }
-
-	/**
-     *
-     * @param formData
-     * @returns {*}
-     */
-    redeemReward(id) {
-        return $.ajax({
-            url: this.apiPath + "rewards/redeem/"+id,
-			beforeSend: function(xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
-            }.bind(this),
-            dataType: 'json',
-            type: 'POST'
-        });
-    }
-
     /**
      *
      * @param username
@@ -123,19 +107,101 @@ class API {
         });
     }
 
+
+	/**
+	 * [getLoyaltyPrograms description]
+	 * @method getLoyaltyPrograms
+	 * @param  {[type]} user_id [description]
+	 * @return {[type]} [description]
+	 */
+	getLoyaltyPrograms(user_id) {
+		return $.ajax({
+			url: this.apiPath + `user/${user_id}/programs`,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+			}.bind(this),
+			dataType: 'json',
+			type: 'GET'
+		});
+	}
+
+
+	getUserActivity(user_id) {
+		return $.ajax({
+			url: this.apiPath + `user/${user_id}/activity`,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+			}.bind(this),
+			dataType: 'json',
+			type: 'GET'
+		});
+	}
+
+	/**
+     *
+     * @param formData
+     * @returns {*}
+     */
+    joinProgram(customer_id,user_id) {
+        return $.ajax({
+            url: this.apiPath + `user/${user_id}/enroll/${customer_id}`,
+			beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+            }.bind(this),
+            dataType: 'json',
+            type: 'POST'
+        });
+    }
+
+    leaveProgram(customer_id,user_id) {
+        return $.ajax({
+            url: this.apiPath + `user/${user_id}/leave/${customer_id}`,
+			beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+            }.bind(this),
+            dataType: 'json',
+            type: 'POST'
+        });
+    }
+
+
+	/**
+     *
+     * @param formData
+     * @returns {*}
+     */
+    redeemReward(customer_id,user_id,id) {
+        return $.ajax({
+            url: this.apiPath + `user/${user_id}/customer/${customer_id}/reward/redeem/${id}`,
+			beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
+            }.bind(this),
+            dataType: 'json',
+            type: 'POST'
+        });
+    }
+
+
     /**
      *
      * @returns {*}
      */
-    getRewards() {
-        if (this.token == null || this.token == undefined) {
-            mobileApp.alert("No Token Found")
-        }
+    getCategories() {
         return $.ajax({
-            url: this.apiPath + "rewards/all",
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
-            }.bind(this),
+            url: this.apiPath + "business/categories",
+            type: 'GET',
+            dataType: 'json'
+        });
+    }
+
+
+	/**
+     *
+     * @returns {*}
+     */
+    getRewards(customer_id) {
+        return $.ajax({
+            url: this.customerApiPath + `${customer_id}/rewards/all`,
             type: 'GET',
             dataType: 'json'
         });

@@ -9,7 +9,7 @@ let config = {
 	customer_id:"", // used for custom app designs
 	push_channel:"loyalty_club",
 	oneSignalAPI:"37b55bec-2e85-4fa9-9321-a172bd0d86f9",
-	ga: 'UA-86494014-1',
+	ga: 'UA-107692663-1',
 	/** list out images you want to preload here **/
 	preloadImages: []
 };

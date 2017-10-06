@@ -8,82 +8,82 @@
     },
     "installed_plugins": {
         "android.support.v4": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "com.passslot.cordova.plugin.passbook": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "com.telerik.plugins.nativepagetransitions": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-launch-review": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-app-version": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-crosswalk-webview": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-geolocation": {
             "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-keyboard": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-qrscanner": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-screen-orientation": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-themeablebrowser": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "cordova-plugin-x-toast": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
-        },
-        "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-ios-camera-permissions": {
             "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
             "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
             "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs photo library access",
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
-        "cordova-launch-review": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+        "cordova-plugin-keyboard": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-plugin-qrscanner": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-plugin-themeablebrowser": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         },
         "cordova-plugin-swift-support": {
-            "PACKAGE_NAME": "org.theloyaltyclub"
+            "PACKAGE_NAME": "org.theloyaltyclub.scanner"
         }
     }
 }

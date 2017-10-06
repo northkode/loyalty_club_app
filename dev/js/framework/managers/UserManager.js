@@ -6,10 +6,10 @@ class UserManager {
     constructor(){
 		window.device = window.device || {};
         this.promise = $.Deferred();
-        if(window.cordova && window.facebookConnectPlugin) {
+        /*if(window.cordova && window.facebookConnectPlugin) {
             // set global onProfileChange callback from facebook
             facebookConnectPlugin.setProfileChangeCallback(this.onProfileChange.bind(this));
-        }
+        }*/
         this._userDetails = undefined;
         this._userStatus = 'unknown';
     }
@@ -69,6 +69,7 @@ class UserManager {
             setTimeout(() => {
                 this.userStatus = "connected";
                 mobileApp.api.token = mobileApp.localSettings.getItem('token');
+                mobileApp.api.customer_id = mobileApp.localSettings.getItem('customer_id');
                 var promise = mobileApp.api.getUser();
                 promise.done((status) => {
                     mobileApp.um.userStatus = 'connected';
@@ -76,7 +77,7 @@ class UserManager {
                     mobileApp.um.currentUser = status;
                 });
                 promise.fail(function(){
-                    mobileApp.changeApplicationState('#welcome');
+                    mobileApp.changeApplicationState('#login');
                     window.plugins.toast.showShortBottom('Session has expired', function(a){}, function(b){});
                     mobileApp.localSettings.removeItem('token');
                     mobileApp.localSettings.removeItem('context');

@@ -17,19 +17,27 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-app-version.AppVersionPlugin",
-        "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
-        "pluginId": "cordova-plugin-app-version",
-        "clobbers": [
-            "cordova.getAppVersion"
-        ]
-    },
-    {
         "id": "cordova-plugin-device.device",
         "file": "plugins/cordova-plugin-device/www/device.js",
         "pluginId": "cordova-plugin-device",
         "clobbers": [
             "device"
+        ]
+    },
+    {
+        "id": "cordova-launch-review.LaunchReview",
+        "file": "plugins/cordova-launch-review/www/launchreview.js",
+        "pluginId": "cordova-launch-review",
+        "clobbers": [
+            "LaunchReview"
+        ]
+    },
+    {
+        "id": "cordova-plugin-app-version.AppVersionPlugin",
+        "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
+        "pluginId": "cordova-plugin-app-version",
+        "clobbers": [
+            "cordova.getAppVersion"
         ]
     },
     {
@@ -347,14 +355,6 @@ module.exports = [
         "clobbers": [
             "OneSignal"
         ]
-    },
-    {
-        "id": "cordova-launch-review.LaunchReview",
-        "file": "plugins/cordova-launch-review/www/launchreview.js",
-        "pluginId": "cordova-launch-review",
-        "clobbers": [
-            "LaunchReview"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -363,14 +363,16 @@ module.exports.metadata =
     "android.support.v4": "21.0.1",
     "com.passslot.cordova.plugin.passbook": "0.2.1",
     "com.telerik.plugins.nativepagetransitions": "0.6.5",
+    "cordova-plugin-device": "1.1.5",
+    "cordova-launch-review": "2.0.0",
     "cordova-plugin-app-version": "0.1.9",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-crosswalk-webview": "2.3.0",
-    "cordova-plugin-device": "1.1.5",
     "cordova-plugin-dialogs": "1.3.0",
     "cordova-plugin-file": "4.3.0",
     "cordova-plugin-geolocation": "2.4.3",
     "cordova-plugin-inappbrowser": "1.5.0",
+    "cordova-plugin-ios-camera-permissions": "1.1.1",
     "cordova-plugin-keyboard": "1.1.4",
     "cordova-plugin-network-information": "1.3.0",
     "cordova-plugin-swift-support": "3.1.0",
@@ -381,9 +383,7 @@ module.exports.metadata =
     "cordova-plugin-themeablebrowser": "0.2.17",
     "cordova-plugin-whitelist": "1.3.0",
     "cordova-plugin-x-toast": "2.5.2",
-    "onesignal-cordova-plugin": "2.0.8",
-    "cordova-plugin-ios-camera-permissions": "1.1.1",
-    "cordova-launch-review": "2.0.0"
+    "onesignal-cordova-plugin": "2.0.8"
 };
 // BOTTOM OF METADATA
 });

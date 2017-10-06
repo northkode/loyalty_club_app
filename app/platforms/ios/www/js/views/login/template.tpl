@@ -11,21 +11,19 @@
 				<div class="field">
 					<input type="password" name="password" placeholder="Password" />
 				</div>
+				<div class="field">
+					<input type="text" name="location_code" placeholder="Location Code" />
+				</div>
 				<div class="systemButton button send-login"> Login
 					<div class="spinner"></div>
 				</div>
 				<p class="forgot-password">Forgot Password?</p>
 			</div>
 
-			<div class="forgot-password-modal">			
+			<div class="forgot-password-modal">
 				<h2>Forgot Username or Password</h2>
 				<div class="field">
 					<input type="email" name="email" placeholder="Please enter your email" />
-				</div>
-				<div class="field birthday">
-					<input type="text" name="mth" placeholder="mth" /> /
-					<input type="text" name="day" placeholder="day" /> /
-					<input type="text" name="year" placeholder="year" />
 				</div>
 				<div class="systemButton button forgot-btn"> Submit
 					<div class="spinner"></div>
