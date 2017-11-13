@@ -17,12 +17,6 @@ class Admin extends DefaultAppView {
         this.registerListener('click', this.onRestartScan, '.restartScan');
         this.registerListener('click', this.closeUser, '.close');
         this.registerListener('click', this.selectOption, '.option');
-        this.registerListener('click', this.switchToPoints, '.switch');
-    }
-
-
-    switchToPoints() {
-        mobileApp.changeApplicationState('#home');
     }
 
     selectOption(e) {

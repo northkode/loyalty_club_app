@@ -1,7 +1,7 @@
 <mobile-view class="admin_page">
 	<div class="content">
 		<% if(mobileApp.currentUser.account_type == 'admin') {%>
-		<button class="switch">Switch To Points</button>
+	
 		<% } %>
 		<button class="cancelScan systemButton"> Cancel </button>
 		<button class="restartScan systemButton"> Restart Scan </button>

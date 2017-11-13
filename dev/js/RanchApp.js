@@ -35,7 +35,7 @@ class RanchApp extends MobileApp {
     init() {
         super.init();
 
-		this.api = new API(this.settings.dev_server); // server api helper
+		this.api = new API(this.settings.prod_server); // server api helper
 
 		console.log("app initializing...");
 
@@ -174,6 +174,7 @@ class RanchApp extends MobileApp {
 
 			mobileApp.um.currentUser.app_data.platform = cordova.platformId;
 			this.localSettings.setItem('user',true);
+            mobileApp.api.customer_id = mobileApp.um.currentUser.customer.id;
 
 			// start push notification manager now that we are logged in
 			this.pn.init(this.settings,this.loyaltySettings);

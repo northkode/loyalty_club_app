@@ -16,6 +16,7 @@
 	<form>
 		<p style="margin-bottom:0;">Specify the type of purchase:</p>
 		<input type="hidden" name="user_id" value="<%= rc.user.id %>"/>
+		<input type="hidden" name="company_id" value="<%= mobileApp.currentUser.customer.id %>"/>
 		<div class="options">
 			<% for(var i=0; i < rc.options.length; i++) { %>
 				<div class="option <%= rc.options.length == 1 ? 'active' : '' %>" data-id="<%= rc.options[i].id %>" data-fraction="<%= rc.options[i].fraction %>">
