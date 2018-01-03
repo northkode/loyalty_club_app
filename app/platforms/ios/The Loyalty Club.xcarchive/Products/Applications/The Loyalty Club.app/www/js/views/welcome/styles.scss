@@ -1,0 +1,93 @@
+.welcome-page {
+	background: linear-gradient(-50deg, #1c1d20, #303439);
+	background-size:cover;
+	background-position: center center;
+
+	mobile-header {
+		display: none;
+		background: transparent;
+
+		.title {
+			color: white;
+		}
+	}
+
+	.getStarted {
+		width: 80%;
+		margin: 0 auto;
+		padding: 10px;
+		background: linear-gradient(-0deg, #8a8a8a, #fff);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, .7);
+		font-family: Lato;
+		font-style: italic;
+		font-size: 30px;
+		color: #000 !important;
+		font-weight: 700;
+	}
+
+	.or {
+		color: #eee;
+		font-weight: 600;
+		font-style: italic;
+		text-align: center;
+		font-size: 20px;
+		margin: 10px;
+	}
+
+	.login {
+		color: #eee;
+		font-size: 16px;
+		text-align: center;
+		margin-bottom: 20px;
+
+		span {
+			color: white;
+			font-weight: 600;
+			margin-left: 5px;
+		}
+	}
+
+	.content {
+		flex-direction: column;
+		padding: 0;
+		background: transparent;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 0 30px;
+		font-size: 16px;
+		color: #8d8d8d;
+		padding: 0 30px;
+		margin-bottom: -50px;
+
+		> img {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		.sub-title,
+		h1 {
+			display: block;
+			width: 100%;
+			text-align: center;
+			color: white;
+			font-family: "Cormorant SC";
+			background: linear-gradient(#ececec, #8a8a8a);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			position: relative;
+			text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+		}
+
+		h1 {
+			font-size: 60px;
+			line-height: 50px;
+		}
+
+		p {
+			font-size: 18px;
+			color: white;
+			margin-bottom: 0;
+		}
+	}
+}

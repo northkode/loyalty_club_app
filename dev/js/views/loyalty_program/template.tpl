@@ -89,6 +89,14 @@
 								</li>
 							</a>
 						<%}%>
+						<% if(rc.online_booking_url) {%>
+							<a href="<%= rc.online_booking_url %>" target="_blank">
+								<li class='bookonline option'>
+									<i class="fa fa-flag"></i>
+									Click here to book online
+								</li>
+							</a>
+						<%}%>
 				</ul>
 				<% if(rc.customer) { %>
 					<div class="leave-program">

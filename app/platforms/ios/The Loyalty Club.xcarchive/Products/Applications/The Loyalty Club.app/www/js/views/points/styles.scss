@@ -1,0 +1,85 @@
+.points_page {
+	background: $background;
+
+	mobile-header {
+		display: block;
+		background: transparent;
+
+		.title {
+			color: white;
+		}
+
+		.backBtn {
+			&:before {
+				color: white;
+			}
+		}
+	}
+
+	.content {
+		flex-direction: column;
+		background: transparent;
+		padding: 0;
+
+		.referral_code {
+			margin-top: auto;
+			color: #ccc;
+			font-size: 15px;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.passbook {
+			width: 150px;
+			background: 0;
+			margin: 0 auto;
+			display: block;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.instruction {
+			width: 80%;
+			margin: 10px auto 0;
+			text-align: center;
+			color: white;
+			font-size: 14px;
+			@include iPad() {
+				font-size: 30px;
+				font-family: bree;
+			};
+		}
+
+		.bar_code {
+			padding: 20px;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			left: 50%;
+			width: 100%;
+			@include small-device() {
+				width: 80%;
+			};
+			@include mini() {
+				width: 60%;
+			};
+			@include iPad() {
+				width: 70%;
+			};
+
+			img {
+				width: 100%;
+			}
+
+			p {
+				text-align: center;
+				margin-top: 0;
+				color: white;
+				font-size: 30px;
+				font-family: bree;
+			}
+		}
+	}
+}

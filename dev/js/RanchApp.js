@@ -134,13 +134,21 @@ class RanchApp extends MobileApp {
 		var promise = this.api.getLoyaltySettings();
 		promise.done(data => {
 			this.loyaltySettings = data;
-			// check to see if this phone has had a user logged in before
-	        if (this.localSettings.getItem('user') == undefined) { // brand new phone, so show them the welcome screen
-	            this.changeApplicationState('#welcome');
-				setTimeout(() => { navigator.splashscreen.hide(); }, 1500);
-	        } else {
-	            this.um.checkLoginStatus();
-	        }
+
+            var promise = mobileApp.api.getCategories();
+    		promise.done(data => {
+    			console.log(data);
+    			this.categories = data;
+
+                // check to see if this phone has had a user logged in before
+    	        if (this.localSettings.getItem('user') == undefined) { // brand new phone, so show them the welcome screen
+    	            this.changeApplicationState('#welcome');
+    				setTimeout(() => { navigator.splashscreen.hide(); }, 1500);
+    	        } else {
+    	            this.um.checkLoginStatus();
+    	        }
+    		});
+
 		});
     }
 
