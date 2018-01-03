@@ -337,6 +337,14 @@ module.exports = [
         "clobbers": [
             "LaunchReview"
         ]
+    },
+    {
+        "id": "cordova-plugin-progress.Progress",
+        "file": "plugins/cordova-plugin-progress/www/progress.js",
+        "pluginId": "cordova-plugin-progress",
+        "clobbers": [
+            "progress"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -365,7 +373,8 @@ module.exports.metadata =
     "cordova-plugin-x-toast": "2.5.2",
     "onesignal-cordova-plugin": "2.0.8",
     "cordova-plugin-ios-camera-permissions": "1.1.1",
-    "cordova-launch-review": "2.0.0"
+    "cordova-launch-review": "2.0.0",
+    "cordova-plugin-progress": "0.3.0"
 };
 // BOTTOM OF METADATA
 });

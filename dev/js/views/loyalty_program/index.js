@@ -52,7 +52,7 @@ class Program extends DefaultAppView {
                 mobileApp.changeApplicationState('#reward', {
                     viewData: {
                         reward,
-                        points: this.viewData.customer.points,
+                        points: this.viewData.customer ? this.viewData.customer.points : 0,
                         customerId: this.viewData.id
                     }
                 });
@@ -119,11 +119,12 @@ class Program extends DefaultAppView {
     getRewards(){
         var promise = mobileApp.api.getRewards(this.viewData.id);
         promise.done(data => {
+            this.getViewInstance().find('.spinner').remove();
             this.rewards = data;
             this.getViewInstance().find('.rewards-swiper').html(this.rewardsTPL({
                 rewards: this.rewards,
                 customerId: this.viewData.id,
-                points: this.viewData.customer.points
+                points: this.viewData.customer ? this.viewData.customer.points : 0
             }));
             setTimeout(() => {
                 this.getViewInstance().find('.rewards-swiper').addClass('active');

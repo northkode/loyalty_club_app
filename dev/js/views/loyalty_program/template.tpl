@@ -27,7 +27,8 @@
 				<div class="tabbar__tab" data-ui-href="activity">Activity</div>
 				<div class="tabbar__tab" data-ui-href="details">Details</div>
 			</div>
-			<div class="tab__content active" data-id="rewards">
+			<div class="tab__content active" data-id="rewards" style="position:relative">
+				<div class="spinner" style="margin-top:30px;"></div>
 				<div class="rewards">
 					<div class="rewards-header"></div>
 					<div class="rewards-swiper">
@@ -41,9 +42,9 @@
 						<span flex></span>
 						<% if(rc.customer) { %>
 							<p>Member Since
-								<%= rc.customer.joined %>
+							<%= rc.customer.joined %>
 							</p>
-							<%}%>
+						<%}%>
 					</div>
 					<ul class="activity-details">
 						<li class='option'>
@@ -60,26 +61,34 @@
 			<div class="tab__content" data-id="details">
 				<h2>Business Information</h2>
 				<ul class="details-holder">
-					<li class='address option'>
-						<i class="fa fa-map-marker"></i>
-						<%= rc.address %>
-					</li>
-					<li class='phone option'>
-						<i class="fa fa-phone"></i>
-						<%= rc.phone.replace(/\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})/g,'$1 $2-$3') %>
-					</li>
-					<% if(rc.website) {%>
-						<li class='website option'>
-							<i class="fa fa-globe"></i>
-							<%= rc.website %>
+					<a href="http://maps.google.com/?q=<%= rc.address %>" target="_blank">
+						<li class='address option'>
+							<i class="fa fa-map-marker"></i>
+							<%= rc.address %>
 						</li>
+					</a>
+					<a href="tel:<%= rc.phone.replace(/\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})/g,'$1 $2-$3') %>">
+						<li class='phone option'>
+							<i class="fa fa-phone"></i>
+							<%= rc.phone.replace(/\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})/g,'$1 $2-$3') %>
+						</li>
+					</a>
+					<% if(rc.website) {%>
+						<a href="<%= rc.website %>" target="_blank">
+							<li class='website option'>
+								<i class="fa fa-globe"></i>
+								<%= rc.website %>
+							</li>
+						</a>
 						<%}%>
-							<% if(rc.facebook_url) {%>
+						<% if(rc.facebook_url) {%>
+							<a href="https://facebook.com/<%= rc.facebook_url %>" target="_blank">
 								<li class='facebook option'>
 									<i class="fa fa-facebook"></i> /
 									<%= rc.facebook_url %>
 								</li>
-								<%}%>
+							</a>
+						<%}%>
 				</ul>
 				<% if(rc.customer) { %>
 					<div class="leave-program">

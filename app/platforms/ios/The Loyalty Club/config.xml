@@ -3,6 +3,10 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+        <param name="onload" value="true" />
+    </feature>
     <feature name="HandleOpenUrl">
         <param name="ios-package" value="CDVHandleOpenURL" />
         <param name="onload" value="true" />
@@ -21,11 +25,14 @@
     <feature name="NativePageTransitions">
         <param name="ios-package" value="NativePageTransitions" />
     </feature>
-    <feature name="AppVersion">
-        <param name="ios-package" value="AppVersion" />
-    </feature>
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="LaunchReview">
+        <param name="ios-package" value="LaunchReview" />
+    </feature>
+    <feature name="AppVersion">
+        <param name="ios-package" value="AppVersion" />
     </feature>
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
@@ -45,6 +52,10 @@
     </feature>
     <feature name="NetworkStatus">
         <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <feature name="Progress">
+        <param name="ios-package" value="Progress" />
+        <param name="onload" value="true" />
     </feature>
     <feature name="QRScanner">
         <param name="ios-package" value="QRScanner" />
@@ -69,9 +80,6 @@
     <feature name="OneSignalPush">
         <param name="ios-package" value="OneSignalPush" />
     </feature>
-    <feature name="LaunchReview">
-        <param name="ios-package" value="LaunchReview" />
-    </feature>
     <name>The Loyalty Club</name>
     <description>
         Loyalty Club App, your rewards start here.
@@ -87,6 +95,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <splash src="res/screen/ios/Default@2x~universal~anyany.png" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />

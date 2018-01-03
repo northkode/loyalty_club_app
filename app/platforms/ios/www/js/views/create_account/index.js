@@ -55,7 +55,7 @@ class CreateAccount extends DefaultAppView {
             push_channel
         });
         promise.done(data => {
-            this.login(e, username, password);
+            this.login(e,username, password);
         });
         promise.fail(data => {
             $(e.currentTarget).removeClass('active');
@@ -68,9 +68,39 @@ class CreateAccount extends DefaultAppView {
         });
     }
 
-    transitionFinished() {
+    login(e,username,password){
+        var promise = mobileApp.api.login(username, password);
+		promise.done(data => {
+            mobileApp.api.token = data.token;
+            progress.show(`Joining program ${this.viewData.program.name}`);
+            if(this.viewData.action =='join'){
+                this.joinProgram(this.viewData.program,data)
+            }
 
+		});
+		promise.fail(data => {
+			$(e.currentTarget).removeClass('active');
+			mobileApp.alert("Account was created. But could not complete auto login.", () => {}, "Login Error");
+		});
     }
+
+    joinProgram(program,userData){
+        var promise = mobileApp.api.joinProgram(program.id, userData.user.id);
+        promise.done(data => {
+            progress.hide();
+            mobileApp.alert("You have successfully joined " + program.name + "'s loyalty program.", () => {
+    			mobileApp.um.currentUser = userData.user;
+    			mobileApp.localSettings.setItem('user', true);
+    			mobileApp.localSettings.setItem('token', userData.token);
+            }, "Joined Program!");
+        });
+        promise.fail(data => {
+            this.getViewInstance().find('.join-program').prop("disabled", false).text("Join Program");
+            mobileApp.alert("There was an error joining this program. Please contact support", () => {}, "Error");
+        })
+    }
+
+    transitionFinished() { }
 
 }
 

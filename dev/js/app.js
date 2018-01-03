@@ -11,7 +11,7 @@ import RanchApp from "./RanchApp";
 function ready(){
 	console.log("app is ready...starting")
 
-	if(navigator.connection && navigator.connection.type == Connection.NONE){
+	if(window.cordova && navigator.connection && navigator.connection.type == Connection.NONE){
 		alert("you are not connected to the internet. Please connect before running TradePros");
 		return;
 	}

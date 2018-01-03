@@ -29,7 +29,6 @@ class BusinessList extends DefaultAppView {
 				customer = customers[0]; // use the customer data from the logged in person so it shows points and other activity
 			}
 		}
-		console.log(customer);
 		mobileApp.changeApplicationState('#program',{viewData:customer});
 	}
 

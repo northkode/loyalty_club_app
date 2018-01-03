@@ -83,7 +83,9 @@ class RanchApp extends MobileApp {
             Keyboard.disableScrollingInShrinkView(true);
         }
 
-		StatusBar.styleLightContent();
+        if(window.cordova){
+            StatusBar.styleLightContent();
+        }
 
         // custom menu button trigger
         this.menuProxy = $.proxy(this.onMenuToggle, this);

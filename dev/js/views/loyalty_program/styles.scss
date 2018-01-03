@@ -192,6 +192,14 @@
 			border-bottom: 1px solid #323b3f;
 			border-top: 1px solid #323b3f;
 
+			a {
+				&:not(:last-child) {
+					li {
+						border-bottom: 1px solid #3d484d;
+					}
+				}
+			}
+
 			li {
 				list-style: none;
 				padding: 20px 0;
@@ -201,10 +209,6 @@
 				align-items: center;
 				color: white;
 				font-weight: 400;
-
-				&:not(:last-child) {
-					border-bottom: 1px solid #3d484d;
-				}
 
 				i {
 					margin-left: -20px;
