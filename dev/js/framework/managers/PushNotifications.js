@@ -40,8 +40,8 @@ export default class PushNotifications {
     };
 
     subscribeToChannel(channelName) {
-        var promise = $.Deferred();
-        return promise;
+		window.plugins.OneSignal.sendTag(channelName, "true");
+        return true;
     };
 
     /**

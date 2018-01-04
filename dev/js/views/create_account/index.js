@@ -88,6 +88,7 @@ class CreateAccount extends DefaultAppView {
         var promise = mobileApp.api.joinProgram(program.id, userData.user.id);
         promise.done(data => {
             progress.hide();
+            mobileApp.pn.subscribeToChannel(program.push_channel);
             mobileApp.alert("You have successfully joined " + program.name + "'s loyalty program.", () => {
     			mobileApp.um.currentUser = userData.user;
     			mobileApp.localSettings.setItem('user', true);

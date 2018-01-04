@@ -83,6 +83,7 @@ class Program extends DefaultAppView {
             this.getViewInstance().find('.join-program').prop("disabled", true).text("Please wait...");
             var promise = mobileApp.api.joinProgram(this.viewData.id, mobileApp.currentUser.id);
             promise.done(data => {
+                mobileApp.pn.subscribeToChannel(this.viewData.push_channel);
                 mobileApp.alert("You have successfully joined " + this.viewData.name + "'s loyalty program.", () => {}, "Joined Program!");
                 mobileApp.changeApplicationState('#home', {
                     clearCache: true
