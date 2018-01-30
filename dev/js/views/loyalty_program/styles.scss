@@ -148,6 +148,7 @@
 				font-size: 15px;
 				padding: 10px;
 				border-radius: 0!important;
+				border-right: 1px solid rgba(255,255,255,.06);
 
 				&.active {
 					color: white;
@@ -290,6 +291,52 @@
 					&:not(:last-child) {
 						border-bottom: 1px solid #3d484d;
 					}
+				}
+			}
+		}
+
+		.event-list {
+			padding: 20px;
+
+			.event {
+				background-size: cover;
+				background-position: center;
+				color: white;
+				box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+				padding: 10px;
+				border-radius: 5px;
+				background-color: #40535d;
+				height: 200px;
+				position: relative;
+				&::after {
+					content :"";
+					position: absolute;
+					top:0;
+					left:0;
+					width:100%;
+					height:100%;
+					background:rgba(0,0,0,.6);
+					z-index: 1;
+				}
+
+				.event-title {
+					font-weight: bold;
+					font-size: 30px;
+					position: relative;
+					z-index: 2;
+					margin-top:auto;
+				}
+
+				.event-description {
+					font-size: 15px;
+					position: relative;
+					z-index: 2;
+					margin-top: 10px;
+				}
+
+				.event-date {
+					position: relative;
+					z-index: 2;
 				}
 			}
 		}

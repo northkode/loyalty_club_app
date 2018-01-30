@@ -9,6 +9,7 @@ class Program extends DefaultAppView {
         super(route, viewData);
         this.template = _.template(require('./template.tpl'));
         this.rewardsTPL = _.template(require('./rewards.tpl'));
+        this.eventTPL = _.template(require('./events.tpl'));
     }
 
     attachListeners() {
@@ -20,7 +21,7 @@ class Program extends DefaultAppView {
         this.registerListener('tap', this.leaveProgram, '.leave-program');
     }
 
-    leaveProgram(e){
+    leaveProgram(e) {
         $(e.currentTarget).html('Please Wait..').addClass('active');
         navigator.notification.confirm(
             'Are you sure you would like to leave this reward program?', // message
@@ -30,14 +31,14 @@ class Program extends DefaultAppView {
         );
     }
 
-    onConfirmLeave(value){
-        if(value == 1){
-            var promise = mobileApp.api.leaveProgram(this.viewData.id,mobileApp.currentUser.id)
-            promise.done(data=>{
+    onConfirmLeave(value) {
+        if (value == 1) {
+            var promise = mobileApp.api.leaveProgram(this.viewData.id, mobileApp.currentUser.id)
+            promise.done(data => {
                 mobileApp.um.refreshUser();
                 this.clearAfterClose = true;
                 mobileApp.changeApplicationState('#home');
-            }).error(data=>{
+            }).error(data => {
                 navigator.notification.alert(data.responseJSON.error);
                 this.getViewInstance().find('.leave-program').html("Leave Rewards Program").removeClass('active');
             });
@@ -60,7 +61,7 @@ class Program extends DefaultAppView {
         }
     }
 
-    refreshPoints(points){
+    refreshPoints(points) {
         this.viewData.customer.points = points;
         this.getViewInstance().find('.details .phone').html(`${points} points to spend`);
         this.getRewards();
@@ -80,19 +81,27 @@ class Program extends DefaultAppView {
 
     onJoinProgram(e) {
         if (mobileApp.currentUser) {
-            this.getViewInstance().find('.join-program').prop("disabled", true).text("Please wait...");
-            var promise = mobileApp.api.joinProgram(this.viewData.id, mobileApp.currentUser.id);
-            promise.done(data => {
-                mobileApp.pn.subscribeToChannel(this.viewData.push_channel);
-                mobileApp.alert("You have successfully joined " + this.viewData.name + "'s loyalty program.", () => {}, "Joined Program!");
-                mobileApp.changeApplicationState('#home', {
-                    clearCache: true
+            navigator.notification.prompt('If you have friend referral code enter it below:', (results) => {
+                this.getViewInstance().find('.join-program').prop("disabled", true).text("Please wait...");
+                if (results.buttonIndex == 2) {
+                    var promise = mobileApp.api.joinProgram(this.viewData.id, mobileApp.currentUser.id, results.input1.toUpperCase());
+                } else {
+                    var promise = mobileApp.api.joinProgram(this.viewData.id, mobileApp.currentUser.id);
+                }
+                promise.done(data => {
+                    mobileApp.pn.subscribeToChannel(this.viewData.push_channel);
+                    mobileApp.alert("You have successfully joined " + this.viewData.name + "'s loyalty program.", () => {}, "Joined Program!");
+                    setTimeout(() => {
+                        mobileApp.changeApplicationState('#home', {
+                            clearCache: true
+                        });
+                    }, 1000)
                 });
-            });
-            promise.fail(data => {
-                this.getViewInstance().find('.join-program').prop("disabled", false).text("Join Program");
-                mobileApp.alert("There was an error joining this program. Please contact support", () => {}, "Error");
-            })
+                promise.fail(data => {
+                    this.getViewInstance().find('.join-program').prop("disabled", false).text("Join Program");
+                    mobileApp.alert("There was an error joining this program. Please contact support", () => {}, "Error");
+                });
+            }, 'Friend Referral', ['No Referral', 'Add Referral']);
         } else {
             mobileApp.confirm("Before joining a program you must create an account to be apart of The Loyalty Club", (btn) => {
                 if (btn == 2) {
@@ -113,11 +122,11 @@ class Program extends DefaultAppView {
 
     handleViewState() {
         super.handleViewState();
-
         this.getRewards();
+        this.getEvents();
     }
 
-    getRewards(){
+    getRewards() {
         var promise = mobileApp.api.getRewards(this.viewData.id);
         promise.done(data => {
             this.getViewInstance().find('.spinner').remove();
@@ -131,6 +140,18 @@ class Program extends DefaultAppView {
                 this.getViewInstance().find('.rewards-swiper').addClass('active');
                 Utils.forceRedraw(this.getViewInstance().find('.content')[0]);
             }, 10);
+        });
+    }
+
+    getEvents() {
+        var promise = mobileApp.api.getEvents(this.viewData.id);
+        promise.done(data => {
+            this.events = data;
+            console.log(this.events);
+            this.getViewInstance().find('.event-list').html(this.eventTPL({
+                events: this.events,
+                customerId: this.viewData.id
+            }));
         });
     }
 
@@ -151,7 +172,10 @@ class Program extends DefaultAppView {
     }
 
     cleanup() {
-        this.myScroll.destroy();
+        try {
+            this.myScroll.destroy();
+            this.myScroll.off();
+        }catch(e){}
         super.cleanup();
     }
 

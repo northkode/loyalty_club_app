@@ -55,7 +55,7 @@ class CreateAccount extends DefaultAppView {
             push_channel
         });
         promise.done(data => {
-            this.login(e,username, password);
+            this.login(e,username, password,referral);
         });
         promise.fail(data => {
             $(e.currentTarget).removeClass('active');
@@ -68,13 +68,13 @@ class CreateAccount extends DefaultAppView {
         });
     }
 
-    login(e,username,password){
+    login(e,username,password,referral){
         var promise = mobileApp.api.login(username, password);
 		promise.done(data => {
             mobileApp.api.token = data.token;
             progress.show(`Joining program ${this.viewData.program.name}`);
             if(this.viewData.action =='join'){
-                this.joinProgram(this.viewData.program,data)
+                this.joinProgram(this.viewData.program,data,referral)
             }
 
 		});
@@ -84,8 +84,8 @@ class CreateAccount extends DefaultAppView {
 		});
     }
 
-    joinProgram(program,userData){
-        var promise = mobileApp.api.joinProgram(program.id, userData.user.id);
+    joinProgram(program,userData,referral){
+        var promise = mobileApp.api.joinProgram(program.id, userData.user.id,referral);
         promise.done(data => {
             progress.hide();
             mobileApp.pn.subscribeToChannel(program.push_channel);

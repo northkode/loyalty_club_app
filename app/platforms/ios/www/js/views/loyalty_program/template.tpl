@@ -25,6 +25,7 @@
 			<div class="tabbar flex-none">
 				<div class="tabbar__tab active" data-ui-href="rewards">Rewards</div>
 				<div class="tabbar__tab" data-ui-href="activity">Activity</div>
+				<div class="tabbar__tab" data-ui-href="events">Events</div>
 				<div class="tabbar__tab" data-ui-href="details">Details</div>
 			</div>
 			<div class="tab__content active" data-id="rewards" style="position:relative">
@@ -33,6 +34,11 @@
 					<div class="rewards-header"></div>
 					<div class="rewards-swiper">
 					</div>
+				</div>
+			</div>
+			<div class="tab__content" data-id="events" style="position:relative">
+				<div class="event-list">
+				
 				</div>
 			</div>
 			<div class="tab__content" data-id="activity">

@@ -142,9 +142,12 @@ class API {
      * @param formData
      * @returns {*}
      */
-    joinProgram(customer_id,user_id) {
+    joinProgram(customer_id,user_id,referral) {
         return $.ajax({
             url: this.apiPath + `user/${user_id}/enroll/${customer_id}`,
+            data:{
+                referral
+            },
 			beforeSend: function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
             }.bind(this),
@@ -211,15 +214,9 @@ class API {
      *
      * @returns {*}
      */
-    getEvents() {
-        if (this.token == null || this.token == undefined) {
-            mobileApp.alert("No Token Found")
-        }
+    getEvents(customer_id) {
         return $.ajax({
-            url: this.apiPath + "events/all",
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + this.token)
-            }.bind(this),
+            url: this.customerApiPath + `${customer_id}/events/all`,
             type: 'GET',
             dataType: 'json'
         });
