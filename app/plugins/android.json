@@ -7,13 +7,13 @@
     "files": {}
   },
   "installed_plugins": {
-    "android.support.v4": {
-      "PACKAGE_NAME": "org.theloyaltyclub"
-    },
     "com.passslot.cordova.plugin.passbook": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
     "com.telerik.plugins.nativepagetransitions": {
+      "PACKAGE_NAME": "org.theloyaltyclub"
+    },
+    "cordova-launch-review": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
     "cordova-plugin-app-version": {
@@ -42,10 +42,16 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
+    "cordova-plugin-ios-camera-permissions": {
+      "PACKAGE_NAME": "org.theloyaltyclub"
+    },
     "cordova-plugin-keyboard": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
     "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "org.theloyaltyclub"
+    },
+    "cordova-plugin-progress": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
     "cordova-plugin-qrscanner": {
@@ -66,24 +72,18 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
+    "cordova-plugin-wkwebview-engine": {
+      "PACKAGE_NAME": "org.theloyaltyclub"
+    },
     "cordova-plugin-x-toast": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
     "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "org.theloyaltyclub"
-    },
-    "cordova-plugin-ios-camera-permissions": {
-      "PACKAGE_NAME": "org.theloyaltyclub"
-    },
-    "cordova-launch-review": {
-      "PACKAGE_NAME": "org.theloyaltyclub"
-    },
-    "cordova-plugin-progress": {
-      "PACKAGE_NAME": "org.theloyaltyclub"
     }
   },
   "dependent_plugins": {
-    "cordova-plugin-compat": {
+    "cordova-labs-local-webserver": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
     "cordova-plugin-swift-support": {

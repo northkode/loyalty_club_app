@@ -3,7 +3,8 @@
 
 	mobile-header {
 		.icon {
-			top: 30px;
+			top: 20px;
+			right:20px!important;
 		}
 
 		.title {
@@ -321,15 +322,17 @@
 
 				.event-title {
 					font-weight: bold;
-					font-size: 20px;
+					font-size: 30px;
 					position: relative;
 					z-index: 2;
+					margin-top:auto;
 				}
 
 				.event-description {
 					font-size: 15px;
 					position: relative;
 					z-index: 2;
+					margin-top: 10px;
 				}
 
 				.event-date {

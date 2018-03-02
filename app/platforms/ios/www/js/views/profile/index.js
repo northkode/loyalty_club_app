@@ -32,7 +32,7 @@ class Profile extends DefaultAppView {
 				appId = "1247713531";
 				break;
 			case "android":
-				appId = "com.google.android.apps.maps";
+				appId = "org.theloyaltyclub";
 				break;
 		}
 
@@ -93,7 +93,7 @@ class Profile extends DefaultAppView {
 		var colorBG = this.getViewInstance().find('mobile-header .colorbg')[0];
 		this.myScroll.on('scroll',function(e){
 			var scrollTop = this.y;
-			var scrollamount = (scrollTop / offset) * -100; // get amount scrolled (in %)
+			var scrollamount = (scrollTop / offset) * 100; // get amount scrolled (in %)
 			colorBG.style.opacity = (scrollamount * 3) / 100;
 		});
 		/*

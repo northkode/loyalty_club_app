@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "android.support.v4": {
-      "PACKAGE_NAME": "org.theloyaltyclub"
-    },
     "com.passslot.cordova.plugin.passbook": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     },
@@ -79,12 +76,12 @@
     },
     "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "org.theloyaltyclub"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "org.theloyaltyclub"
     }
   },
   "dependent_plugins": {
-    "cordova-plugin-compat": {
-      "PACKAGE_NAME": "org.theloyaltyclub"
-    },
     "cordova-plugin-swift-support": {
       "PACKAGE_NAME": "org.theloyaltyclub"
     }

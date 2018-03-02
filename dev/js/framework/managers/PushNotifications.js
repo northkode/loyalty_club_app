@@ -60,6 +60,7 @@ export default class PushNotifications {
      */
     onReceivedNotification(data) {
         var notification = this._buildNotificationPayload(data);
+        console.log("notification payload",notification);
         if (data.additionalData) {
             if (data.additionalData.actionSelected) {
                 console.log(data.additionalData.actionSelected);
@@ -109,7 +110,7 @@ export default class PushNotifications {
 			if( mobileApp.um.currentUser.app_data.hasOwnProperty('push_user_id') && Array.isArray(mobileApp.um.currentUser.app_data.push_user_id)){
 				if(mobileApp.um.currentUser.app_data.push_user_id.indexOf(this.push_user_id) == -1){
 					mobileApp.um.currentUser.app_data.push_user_id.push(this.push_user_id);
-				}
+    			}
 			} else {
 				mobileApp.um.currentUser.app_data.push_user_id = [this.push_user_id];
 			}

@@ -368,13 +368,11 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "android.support.v4": "21.0.1",
   "com.passslot.cordova.plugin.passbook": "0.2.1",
   "com.telerik.plugins.nativepagetransitions": "0.6.5",
   "cordova-plugin-device": "1.1.5",
   "cordova-launch-review": "2.0.0",
   "cordova-plugin-app-version": "0.1.9",
-  "cordova-plugin-compat": "1.1.0",
   "cordova-plugin-crosswalk-webview": "2.3.0",
   "cordova-plugin-dialogs": "1.3.0",
   "cordova-plugin-file": "4.3.0",
@@ -392,7 +390,8 @@ module.exports.metadata =
   "cordova-plugin-themeablebrowser": "0.2.17",
   "cordova-plugin-whitelist": "1.3.0",
   "cordova-plugin-x-toast": "2.5.2",
-  "onesignal-cordova-plugin": "2.0.8"
+  "onesignal-cordova-plugin": "2.0.8",
+  "cordova-plugin-compat": "1.2.0"
 };
 // BOTTOM OF METADATA
 });

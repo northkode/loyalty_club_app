@@ -31,15 +31,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "android.support.v4": {
-    "source": {
-      "type": "git",
-      "url": "https://github.com/floatinghotpot/cordova-plugin-android-support-v4",
-      "subdir": "."
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-x-toast": {
     "source": {
       "type": "registry",
@@ -73,14 +64,6 @@
       "id": "cordova-plugin-file"
     },
     "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-compat": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-compat"
-    },
-    "is_top_level": false,
     "variables": {}
   },
   "cordova-plugin-network-information": {
@@ -153,7 +136,13 @@
       "id": "cordova-plugin-crosswalk-webview@2.3.0"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "XWALK_VERSION": "23+",
+      "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+      "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+      "XWALK_MODE": "embedded",
+      "XWALK_MULTIPLEAPK": "true"
+    }
   },
   "com.passslot.cordova.plugin.passbook": {
     "source": {
@@ -207,6 +196,24 @@
     "source": {
       "type": "registry",
       "id": "https://github.com/Telerik-Verified-Plugins/cordova-plugin-wkwebview-engine"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-labs-local-webserver": {
+    "source": {
+      "type": "git",
+      "url": "https://github.com/Telerik-Verified-Plugins/LocalWebServer.git",
+      "subdir": ".",
+      "ref": "c205aaaa389a24a73f98a90cea516c5f70fcf27a"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-compat@1.2"
     },
     "is_top_level": true,
     "variables": {}

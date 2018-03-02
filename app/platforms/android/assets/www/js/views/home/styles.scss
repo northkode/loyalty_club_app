@@ -44,7 +44,8 @@
 	}
 
 	.loyalty-cards {
-		margin-top: 10px;
+		margin-top: auto;
+		margin-bottom:20px;
 
 		h1 {
 			font-family: "Lato";
@@ -298,7 +299,7 @@
 			position: relative;
 			display: flex;
 			flex-direction: row;
-			margin-top: auto;
+			margin-top: 10px;
 		}
 
 		.option-holder {

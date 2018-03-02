@@ -23,12 +23,12 @@
 						<ul>
 							<li class="rate">Rate the App</li>
 							<li class="passbook">Get Passbook Pass</li>
-							<li class="no-border">Manage Rewards Programs</li>
+							<!--<li class="no-border">Manage Rewards Programs</li>
 							<li class="spacer"></li>
 							<li>FAQ</li>
 							<li>Contact The Loyalty Club</li>
 							<li>Terms & Conditions</li>
-							<li class="no-border">Privacy Policy</li>
+							<li class="no-border">Privacy Policy</li>-->
 							<li class="spacer"></li>
 							<li class="signout no-border">Sign Out</li>
 						</ul>

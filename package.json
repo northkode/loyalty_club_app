@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cordova": "cd app && cordova",
-    "cordova-version": "cd app && cordova -v",
+    "cordova": "cd ./app && cordova",
+    "cordova-version": "cd ./app && cordova -v",
     "cordova-build-run": "npm run build && cd app && cordova run ios --target='iPhone-6'",
     "cordova-build-all": "cd app && cordova build ios",
     "cordova-release-android": "cd app && cordova build android --buildConfig ./build.json --release",

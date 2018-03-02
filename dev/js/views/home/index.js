@@ -51,6 +51,11 @@ class Home extends DefaultAppView {
         var promise = mobileApp.api.getLoyaltyPrograms(mobileApp.currentUser.id);
         promise.done(data => {
             this.programs = data;
+            // make sure we are up to date on our push notification subscriptions
+            for (var i = 0; i < this.programs.length; i++) {
+                var program = this.programs[i];
+                mobileApp.pn.subscribeToChannel(program.push_channel);
+            }
             mobileApp.currentUser.programs = this.programs;
             this.getViewInstance().find('.swiper-wrapper').html(this.loyaltyCards({
                 cards: data

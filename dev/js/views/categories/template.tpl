@@ -1,5 +1,5 @@
 <mobile-view class="categories-page">
-	<mobile-header title="Loyalty Programs"></mobile-header>
+	<mobile-header title="Loyalty Categories"></mobile-header>
 	<div class="content">
 		<%
 		for(var i=0; i < mobileApp.categories.length; i++){

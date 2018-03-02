@@ -55,7 +55,7 @@ class CreateAccount extends DefaultAppView {
             push_channel
         });
         promise.done(data => {
-            this.login(e,username, password);
+            this.login(e,username, password,referral);
         });
         promise.fail(data => {
             $(e.currentTarget).removeClass('active');
@@ -68,13 +68,15 @@ class CreateAccount extends DefaultAppView {
         });
     }
 
-    login(e,username,password){
+    login(e,username,password,referral){
         var promise = mobileApp.api.login(username, password);
 		promise.done(data => {
-			mobileApp.api.token = data.token;
-			mobileApp.um.currentUser = data.user;
-			mobileApp.localSettings.setItem('user', true);
-			mobileApp.localSettings.setItem('token', data.token);
+            mobileApp.api.token = data.token;
+            progress.show(`Joining program ${this.viewData.program.name}`);
+            if(this.viewData.action =='join'){
+                this.joinProgram(this.viewData.program,data,referral)
+            }
+
 		});
 		promise.fail(data => {
 			$(e.currentTarget).removeClass('active');
@@ -82,9 +84,24 @@ class CreateAccount extends DefaultAppView {
 		});
     }
 
-    transitionFinished() {
-
+    joinProgram(program,userData,referral){
+        var promise = mobileApp.api.joinProgram(program.id, userData.user.id,referral);
+        promise.done(data => {
+            progress.hide();
+            mobileApp.pn.subscribeToChannel(program.push_channel);
+            mobileApp.alert("You have successfully joined " + program.name + "'s loyalty program.", () => {
+    			mobileApp.um.currentUser = userData.user;
+    			mobileApp.localSettings.setItem('user', true);
+    			mobileApp.localSettings.setItem('token', userData.token);
+            }, "Joined Program!");
+        });
+        promise.fail(data => {
+            this.getViewInstance().find('.join-program').prop("disabled", false).text("Join Program");
+            mobileApp.alert("There was an error joining this program. Please contact support", () => {}, "Error");
+        })
     }
+
+    transitionFinished() { }
 
 }
 

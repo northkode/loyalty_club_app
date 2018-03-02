@@ -1,7 +1,7 @@
 require('./styles.scss');
 import DefaultAppView from "../../framework/core/DefaultAppView";
 
-class Login extends DefaultAppView {
+class Categories extends DefaultAppView {
 
     constructor(route, viewData) {
         super(route, viewData);
@@ -44,11 +44,7 @@ class Login extends DefaultAppView {
 	}
 
     transitionFinished() {
-		var promise = mobileApp.api.getCategories();
-		promise.done(data => {
-			console.log(data);
-			this.categories = data;
-		});
+		this.categories = mobileApp.categories;
 
 		/*if (mobileApp.localSettings.getItem('onboarding') == undefined) {
             this.getViewInstance().find('.onboarding').addClass('active');
@@ -65,4 +61,4 @@ class Login extends DefaultAppView {
 
 }
 
-export default Login;
+export default Categories;

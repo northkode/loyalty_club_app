@@ -2,9 +2,9 @@
      "android": {
          "release": {
              "keystore": "../release.key",
-             "storePassword": "theranch",
+             "storePassword": "loyaltyclub",
              "alias": "myReleaseKey",
-             "password" : "theranch",
+             "password" : "loyaltyclub",
              "keystoreType": ""
          }
      }
